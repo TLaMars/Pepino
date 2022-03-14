@@ -6,6 +6,7 @@
   import Gradient from "./Gradient.svelte";
   import TitleBar from "./TitleBar.svelte";
 
+  export let imageElement: HTMLElement | undefined = undefined;
   let element: HTMLTextAreaElement | undefined = undefined;
   let language: string = "auto";
   let editor: EditorFromTextArea = undefined;
@@ -43,17 +44,15 @@
     const detectedLanguage = hljs.highlightAuto(value).language;
     const dLanguage = LANGUAGES.find((l) => l.hljs === detectedLanguage);
 
-    console.log(detectedLanguage);
-
     if (!dLanguage) return;
 
-    // editor.setOption("mode", dLanguage.mode);
+    editor.setOption("mode", dLanguage.mode);
   };
 
   $: checkLanguage(value);
 </script>
 
-<div class="container">
+<div class="container" bind:this={imageElement}>
   <div class={`pepino ${theme}`}>
     <TitleBar />
     <textarea bind:this={element} {value} class:beach={theme === "beach"} />
