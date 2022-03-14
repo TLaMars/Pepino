@@ -1,0 +1,41 @@
+.sunset {
+  //Sunset theme
+  --code-text: #fff;
+  --code-background: rgba(25, 29, 34, 0.8);
+  --code-string: #ffc194;
+  --code-comment: #b18e76;
+  --code-variable: #ffd257;
+  --code-variable2: #ffe6d5;
+  --code-variable3: #ffbc40;
+  --code-number: #ff5100;
+  --code-atom: #ff5100;
+  --code-keyword: #ff9a57;
+  --code-property: #fd7ab9;
+  --code-definition: #ffd257;
+  --code-meta: #ffe6d5;
+  --code-operator: #ff9a57;
+  --code-attribute: #ffd257;
+  --code-tag: #ff9a57;
+  --code-builtin: #fff;
+}
+
+.beach {
+  //Beach theme
+  --code-text: #fff;
+  --code-background: rgba(25, 29, 34, 0.8);
+  --code-string: #68ffa2; // 1
+  --code-comment: #677f94; // 2
+  --code-variable: #6eb2ff; // 3
+  --code-variable2: #c8e2ff; // 4
+  --code-variable3: #3d98ff; // 5
+  --code-number: #9974ff; // 6
+  --code-atom: #4facfe; // 6
+  --code-keyword: #79f6ff; // 7
+  --code-property: #00a8b1; // 8
+  --code-definition: #6eb2ff; // 3
+  --code-meta: #c8e2ff; // 4
+  --code-operator: #79f6ff; // 7
+  --code-attribute: #6eb2ff; // 3
+  --code-tag: #79f6ff; // 7
+  --code-builtin: #fff;
+}

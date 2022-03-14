@@ -6,6 +6,12 @@ const LANGUAGES: Language[] = [
     mode: "auto",
   },
   {
+    name: "CSS",
+    mode: "text/css",
+    path: "css/css",
+    hljs: "css",
+  },
+  {
     name: "JavaScript",
     mode: "text/javascript",
     path: "javascript/javascript",
