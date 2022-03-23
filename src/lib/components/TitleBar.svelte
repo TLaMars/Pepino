@@ -50,5 +50,6 @@
     text-align: center;
     outline: none;
     font-family: var(--code);
+    color: white;
   }
 </style>

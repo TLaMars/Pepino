@@ -4,7 +4,7 @@
   width: auto !important;
   color: var(--code-text) !important;
   background-color: var(--code-background) !important;
-  padding: 1.6rem 0;
+  padding: 1.6rem 0 0 0;
   background-color: transparent !important;
   border: none;
   font-size: 1.6rem;
@@ -98,4 +98,8 @@
 
 .cm-qualifier {
   color: var(--code-keyword) !important;
+}
+
+.cm-type {
+  color: var(--code-type) !important;
 }

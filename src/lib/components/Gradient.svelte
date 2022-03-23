@@ -1,17 +1,30 @@
 <script lang="ts">
-  export let theme: string;
+  import type { Gradient } from "../types";
+
+  export let gradient: Gradient;
+  export let background = false;
+  export let smallSquare = false;
 </script>
 
 <div
-  class="container"
-  class:beach={theme === "beach"}
-  class:sunset={theme === "sunset"}
+  class="gradient"
+  class:background
+  class:small-square={smallSquare}
+  style="--gradient-color-1: {gradient.color1}; --gradient-color-2: {gradient.color2}"
 >
   <slot />
 </div>
 
 <style lang="scss">
-  .container {
+  .gradient {
+    background: linear-gradient(
+      to bottom right,
+      var(--gradient-color-1),
+      var(--gradient-color-2)
+    );
+  }
+
+  .background {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,13 +33,12 @@
     z-index: -1;
   }
 
-  :global(.sunset) {
-    background: #ee0979;
-    background: linear-gradient(to right, #ff6a00, #ee0979);
-  }
-
-  .beach {
-    background: #00f2fe;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+  .small-square {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 0.4rem;
+    margin: 0;
+    padding: 0;
   }
 </style>
