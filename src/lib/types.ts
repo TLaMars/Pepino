@@ -5,20 +5,37 @@ export type Language = {
   hljs?: string;
 };
 
+export type Gradient = {
+  color1: string;
+  color2: string;
+};
+
 export type Theme = {
-  attribute: string;
-  background: string;
-  comment: string;
-  definition: string;
-  keyword: string;
-  meta: string;
-  number: string;
-  operator: string;
-  property: string;
-  string: string;
-  tag: string;
-  text: string;
-  variable: string;
-  variable2: string;
-  variable3: string;
+  name: string;
+  gradient: Gradient;
+  colors: {
+    atom: string;
+    attribute: string;
+    background: string;
+    builtin: string;
+    comment: string;
+    definition: string;
+    keyword: string;
+    meta: string;
+    number: string;
+    operator: string;
+    property: string;
+    string: string;
+    tag: string;
+    text: string;
+    type: string;
+    variable: string;
+    variable2: string;
+    variable3: string;
+  };
+};
+
+export type SelectOption = {
+  label: string;
+  gradient?: Gradient;
 };
