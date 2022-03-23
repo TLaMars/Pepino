@@ -17,8 +17,8 @@
   }
 
   .title {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--light-gray);
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-weight: 500;
   }
 </style>

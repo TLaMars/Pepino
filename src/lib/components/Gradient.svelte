@@ -37,7 +37,7 @@
     display: block;
     width: 1.6rem;
     height: 1.6rem;
-    border-radius: 0.4rem;
+    border-radius: var(--border-radius-xs);
     margin: 0;
     padding: 0;
   }

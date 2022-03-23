@@ -22,7 +22,7 @@
     text-align: left;
     cursor: pointer;
     padding: 0.6rem;
-    border-radius: 0.4rem;
+    border-radius: var(--border-radius-xs);
 
     display: flex;
     align-items: center;
@@ -32,7 +32,7 @@
     }
 
     &:hover {
-      background: #15191d;
+      background: var(--dark-gray);
     }
   }
 
@@ -43,6 +43,6 @@
   }
 
   .active {
-    background: #15191d;
+    background: var(--dark-gray);
   }
 </style>

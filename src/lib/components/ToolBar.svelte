@@ -65,11 +65,11 @@
     align-items: center;
     justify-content: space-between;
 
-    border-radius: 1.2rem;
+    border-radius: var(--border-radius-m);
     padding: 1.6rem;
-    background: #15191d;
+    background: var(--dark-gray);
     min-width: 60rem;
-    height: 4.8rem;
+    height: 5rem;
     box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6);
     z-index: 10;
   }
@@ -80,10 +80,10 @@
 
   .export {
     border: none;
-    border-radius: 0.5rem;
-    color: #00ff9c;
-    background: #0d6f49;
-    padding: 0 2.6rem;
+    border-radius: var(--border-radius-s);
+    color: var(--white);
+    background: var(--dark-green);
+    padding: 0 2.7rem;
     cursor: pointer;
     height: 100%;
     font-weight: bold;

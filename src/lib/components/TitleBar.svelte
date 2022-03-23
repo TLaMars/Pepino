@@ -24,32 +24,32 @@
     display: block;
     width: 1.2rem;
     height: 1.2rem;
-    border-radius: 0.6rem;
-    background-color: #9e9fa1;
+    border-radius: var(--border-radius-s);
+    background: var(--light-gray);
     margin-right: 0.8rem;
   }
 
   .colored {
     :nth-child(1) {
-      background: #ed6a5e;
+      background: var(--red);
     }
     :nth-child(2) {
-      background: #f5bf4f;
+      background: var(--yellow);
     }
     :nth-child(3) {
-      background: #62c554;
+      background: var(--green);
     }
   }
 
   .title {
     border: none;
-    background-color: transparent;
+    background: transparent;
     padding: 0;
     margin: 0 6rem 0 0;
     width: 100%;
     text-align: center;
     outline: none;
     font-family: var(--code);
-    color: white;
+    color: var(--white);
   }
 </style>

@@ -52,9 +52,9 @@
   }
 
   .select {
-    background: #20242c;
-    color: white;
-    border-radius: 0.6rem;
+    background: var(--gray);
+    color: var(--white);
+    border-radius: var(--border-radius-s);
     border: none;
     padding: 0.8rem 1.2rem;
     cursor: pointer;
@@ -65,6 +65,7 @@
     align-items: center;
     width: 15rem;
     text-transform: capitalize;
+    margin-bottom: 0;
 
     .left {
       display: flex;
@@ -73,9 +74,9 @@
   }
 
   .options {
-    background: #20242c;
-    color: white;
-    border-radius: 0.6rem;
+    background: var(--gray);
+    color: var(--white);
+    border-radius: var(--border-radius-s);
     padding: 0.6rem;
 
     position: absolute;

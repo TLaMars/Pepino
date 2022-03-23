@@ -88,7 +88,7 @@
 
   .pepino {
     padding: 1.6rem;
-    border-radius: 1.2rem;
+    border-radius: var(--border-radius-m);
     background: var(--code-background);
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
