@@ -28,8 +28,8 @@
 <main>
   <ToolBar {imageElement} />
   <div class="container">
-    <Pepino language={$language} theme={$theme} bind:imageElement bind:width />
-    <WidthSelector bind:clientWidth={width} />
+    <Pepino language={$language} theme={$theme} bind:imageElement {width} />
+    <WidthSelector bind:width />
   </div>
 </main>
 

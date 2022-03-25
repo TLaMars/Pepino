@@ -1,16 +1,17 @@
 <script lang="ts">
   import ArrowLeft from "./assets/ArrowLeft.svelte";
 
-  export let clientWidth = 520;
+  export let width: number | "auto" = "auto";
 
   let expanding = false;
   let direction: "LEFT" | "RIGHT" = null;
-  let auto = true;
+  let clientWidth: number;
+  let reset = false;
 
   function onMousedown(e: MouseEvent, clickDirection: "LEFT" | "RIGHT") {
     expanding = true;
     direction = clickDirection;
-    auto = false;
+    width = clientWidth;
   }
 
   function onMouseup() {
@@ -30,28 +31,28 @@
     }
 
     if (newWidth < 520) {
-      clientWidth = 520;
+      width = 520;
       return;
     }
 
     if (newWidth > 1020) {
-      clientWidth = 1020;
+      width = 1020;
       return;
     }
 
-    clientWidth = newWidth;
+    width = newWidth;
   }
 
-  function reset() {
-    auto = true;
+  function onReset() {
+    width = "auto";
   }
 
-  $: width = auto ? `100%` : `${clientWidth}px`;
+  $: elementWidth = width === "auto" ? "auto" : `${width}px`;
 </script>
 
 <svelte:window on:mouseup={onMouseup} on:mousemove={onMousemove} />
 
-<div class="container" style="width: {width};" bind:clientWidth>
+<div class="container" style="width: {elementWidth};" bind:clientWidth>
   <button
     class="handle"
     class:active={expanding}
@@ -60,9 +61,16 @@
     <ArrowLeft />
   </button>
   <span class="line" />
-  <span class="label" on:click={reset}>
-    {#if auto}
+  <span
+    class="label"
+    on:click={onReset}
+    on:mouseleave={() => (reset = false)}
+    on:mouseenter={() => (reset = true)}
+  >
+    {#if width === "auto" && !reset}
       Auto
+    {:else if reset}
+      Reset
     {:else}
       {clientWidth}px
     {/if}
@@ -98,6 +106,8 @@
     padding: 0.4rem 1rem;
     border-radius: var(--border-radius-xs);
     font-size: 1.4rem;
+    text-align: center;
+    cursor: pointer;
   }
 
   .handle {

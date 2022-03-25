@@ -12,7 +12,7 @@
   export let language: Language;
   export let theme: Theme;
   export let lineNumbers = false;
-  export let width: number;
+  export let width: number | "auto";
 
   let element: HTMLTextAreaElement;
   let editor: EditorFromTextArea | undefined = undefined;
@@ -64,18 +64,14 @@
 
   $: checkLanguage(value);
   $: changeMode(language);
+  $: elementWidth = width === "auto" ? "auto" : `${width}px`;
   $: style = Object.keys(theme.colors).reduce<string>(
     (styleVars, key) => (styleVars += `--code-${key}: ${theme.colors[key]}; `),
     ""
   );
 </script>
 
-<div
-  class="container"
-  bind:this={imageElement}
-  bind:clientWidth={width}
-  style="width: {width}px;"
->
+<div class="container" bind:this={imageElement} style="width: {elementWidth};">
   <div class="pepino" {style}>
     <TitleBar />
     <textarea bind:this={element} {value} />
