@@ -18,7 +18,7 @@
   .option {
     background: transparent;
     border: none;
-    color: white;
+    color: var(--white);
     text-align: left;
     cursor: pointer;
     padding: 0.6rem;

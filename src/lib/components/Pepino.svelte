@@ -12,14 +12,15 @@
   export let language: Language;
   export let theme: Theme;
   export let lineNumbers = false;
+  export let width: number;
 
   let element: HTMLTextAreaElement;
   let editor: EditorFromTextArea | undefined = undefined;
 
   // Example code
   let value: string = `import React from "react"; \n\nconst Login: React.FC = () => ( \n  <div>    
-    <input type="text" placeholder="Username" />   
-    <input type="password" placeholder="Password" />\n  </div>\n);\n\nexport default Login;`;
+    <input type="text" placeholder="Name" />   
+    <input type="password" placeholder="Pass" />\n  </div>\n);\n\nexport default Login;`;
 
   onMount(() => {
     if (editor) element.innerHTML = "";
@@ -69,7 +70,12 @@
   );
 </script>
 
-<div class="container" bind:this={imageElement}>
+<div
+  class="container"
+  bind:this={imageElement}
+  bind:clientWidth={width}
+  style="width: {width}px;"
+>
   <div class="pepino" {style}>
     <TitleBar />
     <textarea bind:this={element} {value} />
@@ -80,9 +86,10 @@
 <style lang="scss">
   .container {
     position: relative;
-    padding: 1.6rem;
+    box-sizing: border-box;
     width: auto;
-    min-width: 42rem;
+    padding: 1.6rem;
+    min-width: 52rem;
     max-width: 102rem;
   }
 

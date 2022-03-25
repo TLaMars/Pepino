@@ -13,8 +13,10 @@
   import LANGUAGES from "./lib/cconstants/languages";
   import "./lib/utils/code-mirror-imports";
   import "../src/lib/styles/code-mirror.scss";
+  import WidthSelector from "./lib/components/WidthSelector.svelte";
 
   let imageElement: HTMLElement;
+  let width: number;
 
   let theme = writable<Theme>(THEMES[0]);
   setContext(ACTIVE_THEME_KEY, theme);
@@ -26,7 +28,8 @@
 <main>
   <ToolBar {imageElement} />
   <div class="container">
-    <Pepino language={$language} theme={$theme} bind:imageElement />
+    <Pepino language={$language} theme={$theme} bind:imageElement bind:width />
+    <WidthSelector bind:clientWidth={width} />
   </div>
 </main>
 
