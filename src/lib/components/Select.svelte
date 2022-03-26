@@ -65,7 +65,7 @@
     align-items: center;
     width: 15rem;
     text-transform: capitalize;
-    margin-bottom: 0;
+    margin: 0;
 
     .left {
       display: flex;

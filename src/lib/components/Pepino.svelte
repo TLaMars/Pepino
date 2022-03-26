@@ -13,6 +13,8 @@
   export let theme: Theme;
   export let lineNumbers = false;
   export let width: number | "auto";
+  export let background: boolean;
+  export let coloredButtons: boolean;
 
   let element: HTMLTextAreaElement;
   let editor: EditorFromTextArea | undefined = undefined;
@@ -73,10 +75,12 @@
 
 <div class="container" bind:this={imageElement} style="width: {elementWidth};">
   <div class="pepino" {style}>
-    <TitleBar />
+    <TitleBar colored={coloredButtons} />
     <textarea bind:this={element} {value} />
   </div>
-  <Gradient gradient={theme.gradient} background />
+  {#if background}
+    <Gradient gradient={theme.gradient} background />
+  {/if}
 </div>
 
 <style lang="scss">

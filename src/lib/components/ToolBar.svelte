@@ -6,11 +6,19 @@
   import ToolbarOption from "./ToolbarOption.svelte";
   import Select from "./Select.svelte";
   import type { Language, SelectOption, Theme } from "../types";
-  import { getContext } from "svelte";
-  import { ACTIVE_LANGUAGE_KEY, ACTIVE_THEME_KEY } from "../utils/context-keys";
   import Export from "./Export.svelte";
+  import Dropdown from "./Dropdown.svelte";
+  import Settings from "./assets/Settings.svelte";
+  import ToggleSwitch from "./ToggleSwitch.svelte";
 
   export let imageElement: HTMLElement;
+  export let background: Writable<boolean>;
+  export let coloredButtons: Writable<boolean>;
+  export let theme: Writable<Theme>;
+  export let language: Writable<Language>;
+
+  let showBackground = $background;
+  let buttons = $coloredButtons;
 
   const themeOptions: SelectOption[] = THEMES.map(({ name, gradient }) => ({
     label: name,
@@ -21,9 +29,6 @@
     label: name,
   }));
 
-  let theme = getContext<Writable<Theme>>(ACTIVE_THEME_KEY);
-  let language = getContext<Writable<Language>>(ACTIVE_LANGUAGE_KEY);
-
   function updateSelectedTheme({ label }: SelectOption) {
     $theme = THEMES.find(({ name }) => name === label);
   }
@@ -31,10 +36,13 @@
   function updateSelectedLanguage({ label }: SelectOption) {
     $language = LANGUAGES.find(({ name }) => name === label);
   }
+
+  $: $background = showBackground;
+  $: $coloredButtons = buttons;
 </script>
 
 <div class="container">
-  <div class="left">
+  <div class="group">
     <ToolbarOption title="Language">
       <Select
         options={languageOptions}
@@ -52,7 +60,20 @@
     </ToolbarOption>
   </div>
 
-  <Export {imageElement} />
+  <div class="group">
+    <Dropdown>
+      <button slot="button" class="setting-button"><Settings /></button>
+      <div slot="dropdown" class="dropdown">
+        <ToolbarOption title="Background">
+          <ToggleSwitch bind:checked={showBackground} />
+        </ToolbarOption>
+        <ToolbarOption title="Colored buttons">
+          <ToggleSwitch bind:checked={showBackground} />
+        </ToolbarOption>
+      </div>
+    </Dropdown>
+    <Export {imageElement} />
+  </div>
 </div>
 
 <style lang="scss">
@@ -72,8 +93,29 @@
     z-index: 10;
   }
 
-  .left {
+  .group {
     display: flex;
+    height: 100%;
     gap: 1.6rem;
+  }
+
+  .dropdown {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .setting-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray);
+    color: var(--white);
+    border-radius: var(--border-radius-s);
+    border: none;
+    height: 100%;
+    width: 5rem;
+    cursor: pointer;
   }
 </style>

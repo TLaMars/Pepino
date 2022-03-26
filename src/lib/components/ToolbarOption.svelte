@@ -17,5 +17,7 @@
     color: var(--light-gray);
     font-size: 1.2rem;
     font-weight: 500;
+    white-space: nowrap;
+    margin-bottom: 0.2rem;
   }
 </style>

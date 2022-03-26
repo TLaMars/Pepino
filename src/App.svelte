@@ -19,16 +19,22 @@
   let width: number;
 
   let theme = writable<Theme>(THEMES[0]);
-  setContext(ACTIVE_THEME_KEY, theme);
-
   let language = writable<Language>(LANGUAGES[0]);
-  setContext(ACTIVE_LANGUAGE_KEY, language);
+  let background = writable<boolean>(true);
+  let coloredButtons = writable<boolean>(false);
 </script>
 
 <main>
-  <ToolBar {imageElement} />
+  <ToolBar {imageElement} {background} {coloredButtons} {theme} {language} />
   <div class="container">
-    <Pepino language={$language} theme={$theme} bind:imageElement {width} />
+    <Pepino
+      language={$language}
+      theme={$theme}
+      bind:imageElement
+      {width}
+      background={$background}
+      coloredButtons={$coloredButtons}
+    />
     <WidthSelector bind:width />
   </div>
 </main>
