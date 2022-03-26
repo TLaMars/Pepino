@@ -39,3 +39,6 @@ export type SelectOption = {
   label: string;
   gradient?: Gradient;
 };
+
+export type ImageType = "png" | "svg";
+export type ImageScale = 1 | 2 | 4 | 8;

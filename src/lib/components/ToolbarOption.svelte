@@ -11,9 +11,6 @@
   .option {
     display: flex;
     flex-direction: column;
-    &:not(:first-child) {
-      margin-left: 1.6rem;
-    }
   }
 
   .title {

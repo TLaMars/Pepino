@@ -3,12 +3,12 @@
 
   import THEMES from "../cconstants/themes";
   import LANGUAGES from "../cconstants/languages";
-  import createImage from "../utils/create-image";
   import ToolbarOption from "./ToolbarOption.svelte";
   import Select from "./Select.svelte";
   import type { Language, SelectOption, Theme } from "../types";
   import { getContext } from "svelte";
   import { ACTIVE_LANGUAGE_KEY, ACTIVE_THEME_KEY } from "../utils/context-keys";
+  import Export from "./Export.svelte";
 
   export let imageElement: HTMLElement;
 
@@ -52,9 +52,7 @@
     </ToolbarOption>
   </div>
 
-  <button class="export" on:click={() => createImage(imageElement)}>
-    Export
-  </button>
+  <Export {imageElement} />
 </div>
 
 <style lang="scss">
@@ -70,22 +68,12 @@
     background: var(--dark-gray);
     min-width: 60rem;
     height: 5rem;
-    box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6);
+    box-shadow: var(--box-shadow);
     z-index: 10;
   }
 
   .left {
     display: flex;
-  }
-
-  .export {
-    border: none;
-    border-radius: var(--border-radius-s);
-    color: var(--white);
-    background: var(--dark-green);
-    padding: 0 2.7rem;
-    cursor: pointer;
-    height: 100%;
-    font-weight: bold;
+    gap: 1.6rem;
   }
 </style>

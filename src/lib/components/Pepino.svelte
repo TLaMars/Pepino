@@ -96,6 +96,6 @@
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
     font: var(--code);
-    box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+    box-shadow: var(--box-shadow);
   }
 </style>

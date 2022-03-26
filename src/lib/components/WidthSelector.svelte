@@ -25,9 +25,9 @@
     let newWidth = clientWidth;
 
     if (direction === "LEFT") {
-      newWidth -= e.movementX;
+      newWidth -= e.movementX * 2;
     } else if (direction === "RIGHT") {
-      newWidth += e.movementX;
+      newWidth += e.movementX * 2;
     }
 
     if (newWidth < 520) {
