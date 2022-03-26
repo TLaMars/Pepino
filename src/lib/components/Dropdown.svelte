@@ -7,6 +7,7 @@
 <div
   class="container"
   on:mouseenter={() => (visible = true)}
+  on:touchstart={() => (visible = true)}
   on:mouseleave={() => (visible = false)}
   use:outsideClick={() => (visible = false)}
 >
