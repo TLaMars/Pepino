@@ -1,7 +1,7 @@
 <script lang="ts">
   import outsideClick from "../utils/outside-click";
 
-  let visible = true;
+  let visible = false;
 </script>
 
 <div
