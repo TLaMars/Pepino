@@ -68,7 +68,7 @@
           <ToggleSwitch bind:checked={showBackground} />
         </ToolbarOption>
         <ToolbarOption title="Colored buttons">
-          <ToggleSwitch bind:checked={showBackground} />
+          <ToggleSwitch bind:checked={buttons} />
         </ToolbarOption>
       </div>
     </Dropdown>
