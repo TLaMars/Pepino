@@ -2,7 +2,7 @@
   import CodeMirror, { EditorFromTextArea } from "codemirror";
   import { onMount } from "svelte";
 
-  import type { Theme, Language } from "../types";
+  import type { Theme, Language, SettingPadding } from "../types";
   import hljs from "../utils/hljs-helper";
   import LANGUAGES from "../cconstants/languages";
   import Gradient from "./Gradient.svelte";
@@ -15,6 +15,7 @@
   export let width: number | "auto";
   export let background: boolean;
   export let coloredButtons: boolean;
+  export let padding: SettingPadding;
 
   let element: HTMLTextAreaElement;
   let editor: EditorFromTextArea | undefined = undefined;
@@ -73,7 +74,11 @@
   );
 </script>
 
-<div class="container" bind:this={imageElement} style="width: {elementWidth};">
+<div
+  class="container"
+  bind:this={imageElement}
+  style="width: {elementWidth}; padding: {padding}px;"
+>
   <div class="pepino" {style}>
     <TitleBar colored={coloredButtons} />
     <textarea bind:this={element} {value} />
@@ -88,7 +93,6 @@
     position: relative;
     box-sizing: border-box;
     width: auto;
-    padding: 1.6rem;
     min-width: 52rem;
     max-width: 102rem;
   }

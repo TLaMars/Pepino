@@ -1,19 +1,14 @@
 <script lang="ts">
-  import { setContext } from "svelte";
   import { writable } from "svelte/store";
 
   import Pepino from "./lib/components/Pepino.svelte";
   import ToolBar from "./lib/components/ToolBar.svelte";
-  import {
-    ACTIVE_LANGUAGE_KEY,
-    ACTIVE_THEME_KEY,
-  } from "./lib/utils/context-keys";
-  import type { Theme, Language } from "./lib/types";
+  import WidthSelector from "./lib/components/WidthSelector.svelte";
+  import type { Theme, Language, SettingPadding } from "./lib/types";
   import THEMES from "./lib/cconstants/themes";
   import LANGUAGES from "./lib/cconstants/languages";
   import "./lib/utils/code-mirror-imports";
   import "../src/lib/styles/code-mirror.scss";
-  import WidthSelector from "./lib/components/WidthSelector.svelte";
 
   let imageElement: HTMLElement;
   let width: number;
@@ -22,10 +17,18 @@
   let language = writable<Language>(LANGUAGES[0]);
   let background = writable<boolean>(true);
   let coloredButtons = writable<boolean>(false);
+  let padding = writable<SettingPadding>(16);
 </script>
 
 <main>
-  <ToolBar {imageElement} {background} {coloredButtons} {theme} {language} />
+  <ToolBar
+    {imageElement}
+    {background}
+    {coloredButtons}
+    {theme}
+    {language}
+    {padding}
+  />
   <div class="container">
     <Pepino
       language={$language}
@@ -34,6 +37,7 @@
       {width}
       background={$background}
       coloredButtons={$coloredButtons}
+      padding={$padding}
     />
     <WidthSelector bind:width />
   </div>
@@ -46,10 +50,8 @@
   }
 
   .container {
-    // min-height: 100vh;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     margin-top: 16rem;
     margin-bottom: 2rem;
   }

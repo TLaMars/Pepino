@@ -5,7 +5,7 @@
   import LANGUAGES from "../cconstants/languages";
   import ToolbarOption from "./ToolbarOption.svelte";
   import Select from "./Select.svelte";
-  import type { Language, SelectOption, Theme } from "../types";
+  import type { Language, SelectOption, SettingPadding, Theme } from "../types";
   import Export from "./Export.svelte";
   import Dropdown from "./Dropdown.svelte";
   import Settings from "./assets/Settings.svelte";
@@ -16,9 +16,12 @@
   export let coloredButtons: Writable<boolean>;
   export let theme: Writable<Theme>;
   export let language: Writable<Language>;
+  export let padding: Writable<SettingPadding>;
 
   let showBackground = $background;
   let buttons = $coloredButtons;
+
+  const paddings: SettingPadding[] = [16, 32, 64, 128];
 
   const themeOptions: SelectOption[] = THEMES.map(({ name, gradient }) => ({
     label: name,
@@ -64,11 +67,26 @@
     <Dropdown>
       <button slot="button" class="setting-button"><Settings /></button>
       <div slot="dropdown" class="dropdown">
-        <ToolbarOption title="Background">
-          <ToggleSwitch bind:checked={showBackground} />
-        </ToolbarOption>
-        <ToolbarOption title="Colored buttons">
-          <ToggleSwitch bind:checked={buttons} />
+        <div class="group">
+          <ToolbarOption title="Background">
+            <ToggleSwitch bind:checked={showBackground} />
+          </ToolbarOption>
+          <ToolbarOption title="Colored buttons">
+            <ToggleSwitch bind:checked={buttons} />
+          </ToolbarOption>
+        </div>
+        <ToolbarOption title="Padding">
+          <div class="options">
+            {#each paddings as p}
+              <button
+                class="options-button upper"
+                class:active={$padding === p}
+                on:click={() => ($padding = p)}
+              >
+                {p}
+              </button>
+            {/each}
+          </div>
         </ToolbarOption>
       </div>
     </Dropdown>
@@ -102,7 +120,7 @@
   .dropdown {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1rem;
   }
 
@@ -117,5 +135,31 @@
     height: 100%;
     width: 5rem;
     cursor: pointer;
+  }
+
+  .options {
+    display: flex;
+    flex: 1;
+    gap: 0.5rem;
+  }
+
+  .options-button {
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 0.4rem 1rem;
+    border-radius: var(--border-radius-xs);
+    background: var(--dark-gray);
+
+    transition: all 0.2s linear;
+
+    &.active {
+      background: var(--dark-green);
+    }
+
+    &.upper {
+      text-transform: uppercase;
+    }
   }
 </style>
