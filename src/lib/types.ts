@@ -46,6 +46,6 @@ export type ImageScale = 1 | 2 | 4 | 8;
 export type SettingPadding = 16 | 32 | 64 | 128;
 
 export type Example = {
-  mode: Language;
+  language: Language;
   code: string;
 };

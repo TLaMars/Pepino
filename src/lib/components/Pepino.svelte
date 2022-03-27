@@ -7,6 +7,9 @@
   import LANGUAGES from "../cconstants/languages";
   import Gradient from "./Gradient.svelte";
   import TitleBar from "./TitleBar.svelte";
+  import EXAMPLES from "../cconstants/examples";
+
+  const example = EXAMPLES[Math.floor(Math.random() * EXAMPLES.length)];
 
   export let imageElement: HTMLElement | undefined = undefined;
   export let language: Language;
@@ -21,9 +24,7 @@
   let editor: EditorFromTextArea | undefined = undefined;
 
   // Example code
-  let value: string = `import React from "react"; \n\nconst Login: React.FC = () => ( \n  <div>    
-    <input type="text" placeholder="Name" />   
-    <input type="password" placeholder="Pass" />\n  </div>\n);\n\nexport default Login;`;
+  let value: string = example.code;
 
   onMount(() => {
     if (editor) element.innerHTML = "";
@@ -33,7 +34,7 @@
       spellcheck: true,
       tabSize: 2,
       mode: {
-        name: "text/typescript-jsx",
+        name: example.language.mode,
         typescript: true,
       },
       lineNumbers,
