@@ -17,9 +17,11 @@
   export let theme: Writable<Theme>;
   export let language: Writable<Language>;
   export let padding: Writable<SettingPadding>;
+  export let lineNumbers: Writable<boolean>;
 
   let showBackground = $background;
   let buttons = $coloredButtons;
+  let showLineNumbers = $lineNumbers;
 
   const paddings: SettingPadding[] = [16, 32, 64, 128];
 
@@ -42,6 +44,7 @@
 
   $: $background = showBackground;
   $: $coloredButtons = buttons;
+  $: $lineNumbers = showLineNumbers;
 </script>
 
 <div class="container">
@@ -87,6 +90,9 @@
               </button>
             {/each}
           </div>
+        </ToolbarOption>
+        <ToolbarOption title="Line numbers">
+          <ToggleSwitch bind:checked={showLineNumbers} />
         </ToolbarOption>
       </div>
     </Dropdown>

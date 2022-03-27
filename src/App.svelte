@@ -15,6 +15,7 @@
   } from "./lib/utils/store-persisted";
   import {
     PEPINO_COLORED_BUTTONS,
+    PEPINO_LINE_NUMBERS,
     PEPINO_PADDING,
     PEPINO_THEME,
   } from "./lib/cconstants/persisted-keys";
@@ -33,10 +34,14 @@
   let padding = writable<SettingPadding>(
     retrievePersisted<SettingPadding>(PEPINO_PADDING) ?? 16
   );
+  let lineNumbers = writable<boolean>(
+    retrievePersisted<boolean>(PEPINO_LINE_NUMBERS) ?? false
+  );
 
   $: storePersisted(PEPINO_THEME, $theme);
   $: storePersisted(PEPINO_PADDING, $padding);
   $: storePersisted(PEPINO_COLORED_BUTTONS, $coloredButtons);
+  $: storePersisted(PEPINO_LINE_NUMBERS, $lineNumbers);
 </script>
 
 <main>
@@ -47,6 +52,7 @@
     {theme}
     {language}
     {padding}
+    {lineNumbers}
   />
   <div class="container">
     <Pepino
@@ -57,6 +63,7 @@
       background={$background}
       coloredButtons={$coloredButtons}
       padding={$padding}
+      lineNumbers={$lineNumbers}
     />
     <WidthSelector bind:width />
   </div>

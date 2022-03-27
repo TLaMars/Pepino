@@ -1,5 +1,8 @@
 <script lang="ts">
-  import CodeMirror, { EditorFromTextArea } from "codemirror";
+  import CodeMirror, {
+    EditorConfiguration,
+    EditorFromTextArea,
+  } from "codemirror";
   import { onMount } from "svelte";
 
   import type { Theme, Language, SettingPadding } from "../types";
@@ -14,7 +17,7 @@
   export let imageElement: HTMLElement | undefined = undefined;
   export let language: Language;
   export let theme: Theme;
-  export let lineNumbers = false;
+  export let lineNumbers: boolean;
   export let width: number | "auto";
   export let background: boolean;
   export let coloredButtons: boolean;
@@ -22,8 +25,6 @@
 
   let element: HTMLTextAreaElement;
   let editor: EditorFromTextArea | undefined = undefined;
-
-  // Example code
   let value: string = example.code;
 
   onMount(() => {
@@ -63,11 +64,18 @@
       return;
     }
 
-    editor.setOption("mode", language.mode);
+    changeOption("mode", language.mode);
+  }
+
+  function changeOption(option: keyof EditorConfiguration, value: any) {
+    if (!editor) return;
+
+    editor.setOption(option, value);
   }
 
   $: checkLanguage(value);
   $: changeMode(language);
+  $: changeOption("lineNumbers", lineNumbers);
   $: elementWidth = width === "auto" ? "auto" : `${width}px`;
   $: style = Object.keys(theme.colors).reduce<string>(
     (styleVars, key) => (styleVars += `--code-${key}: ${theme.colors[key]}; `),
