@@ -55,6 +55,33 @@ const THEMES: Theme[] = [
       variable3: "#ffbc40",
     },
   },
+  {
+    name: "swamp",
+    gradient: {
+      color1: "#77c500",
+      color2: "#001d18",
+    },
+    colors: {
+      atom: "#ae79ff", // 6
+      attribute: "#77c500", // 3
+      background: "rgba(25, 29, 34, 0.85)",
+      builtin: "#fff",
+      comment: "#73885c", // 2
+      definition: "#77c500", // 3
+      keyword: "#d4d648", // 7
+      meta: "#f3ffc8", // 4
+      number: "#ae79ff", // 6
+      operator: "#d4d648", // 7
+      property: "#b9fc00", // 8
+      string: "#ace255", // 1
+      tag: "#d4d648", // 7
+      text: "#fff",
+      type: "#ae79ff", // 6
+      variable: "#77c500", // 3
+      variable2: "#f3ffc8", // 4
+      variable3: "#5dff3d", // 5
+    },
+  },
 ];
 
 export default THEMES;

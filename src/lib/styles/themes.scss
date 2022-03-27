@@ -1,21 +1,41 @@
 .test-theme {
-  //Beach theme
-  --code-text: #fff;
+  --code-atom: #ae79ff; // 6
+  --code-attribute: #77c500; // 3
   --code-background: rgba(25, 29, 34, 0.85);
-  --code-string: #68ffa2; // 1
-  --code-comment: #677f94; // 2
-  --code-variable: #6eb2ff; // 3
-  --code-variable2: #c8e2ff; // 4
-  --code-variable3: #3d98ff; // 5
-  --code-number: #938bff; // 6
-  --code-atom: #938bff; // 6
-  --code-keyword: #79f6ff; // 7
-  --code-property: #00a8b1; // 8
-  --code-definition: #6eb2ff; // 3
-  --code-meta: #c8e2ff; // 4
-  --code-operator: #79f6ff; // 7
-  --code-attribute: #6eb2ff; // 3
-  --code-tag: #79f6ff; // 7
-  --code-type: #938bff; // 6
   --code-builtin: #fff;
+  --code-comment: #73885c; // 2
+  --code-definition: #77c500; // 3
+  --code-keyword: #d4d648; // 7
+  --code-meta: #f3ffc8; // 4
+  --code-number: #ae79ff; // 6
+  --code-operator: #d4d648; // 7
+  --code-property: #b9fc00; // 8
+  --code-string: #ace255; // 1
+  --code-tag: #d4d648; // 7
+  --code-text: #fff;
+  --code-type: #ae79ff; // 6
+  --code-variable: #77c500; // 3
+  --code-variable2: #f3ffc8; // 4
+  --code-variable3: #5dff3d; // 5
 }
+
+// .test-theme {
+//   --code-atom: #ff76f8; // 6
+//   --code-attribute: #77c500; // 3
+//   --code-background: rgba(25, 29, 34, 0.85);
+//   --code-builtin: #fff;
+//   --code-comment: #73885c; // 2
+//   --code-definition: #77c500; // 3
+//   --code-keyword: #d4d648; // 7
+//   --code-meta: #c8e2ff; // 4
+//   --code-number: #ff76f8; // 6
+//   --code-operator: #d4d648; // 7
+//   --code-property: #00a8b1; // 8
+//   --code-string: #68ffa2; // 1
+//   --code-tag: #d4d648; // 7
+//   --code-text: #fff;
+//   --code-type: #ff76f8; // 6
+//   --code-variable: #77c500; // 3
+//   --code-variable2: #c8e2ff; // 4
+//   --code-variable3: #3d98ff; // 5
+// }
