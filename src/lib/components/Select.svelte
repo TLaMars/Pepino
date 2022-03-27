@@ -33,7 +33,11 @@
     <Arrow />
   </button>
   {#if visible}
-    <div class="options" in:fade={{ duration: 200 }}>
+    <div
+      class="options"
+      in:fade={{ duration: 200 }}
+      out:fade={{ duration: 200 }}
+    >
       {#each options as option, index (index)}
         <SelectOption
           gradient={option.gradient}

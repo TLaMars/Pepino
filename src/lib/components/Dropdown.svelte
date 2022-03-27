@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { fade } from "svelte/transition";
+
   import outsideClick from "../utils/outside-click";
 
   let visible = false;
@@ -14,7 +16,11 @@
   <slot name="button" />
   {#if visible}
     <div class="outer-container">
-      <div class="dropdown">
+      <div
+        class="dropdown"
+        in:fade={{ duration: 200 }}
+        out:fade={{ duration: 200 }}
+      >
         <slot name="dropdown" />
       </div>
     </div>

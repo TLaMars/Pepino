@@ -44,3 +44,8 @@ export type ImageType = "png" | "svg";
 export type ImageScale = 1 | 2 | 4 | 8;
 
 export type SettingPadding = 16 | 32 | 64 | 128;
+
+export type Example = {
+  mode: Language;
+  code: string;
+};

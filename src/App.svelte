@@ -9,15 +9,34 @@
   import LANGUAGES from "./lib/cconstants/languages";
   import "./lib/utils/code-mirror-imports";
   import "../src/lib/styles/code-mirror.scss";
+  import {
+    retrievePersisted,
+    storePersisted,
+  } from "./lib/utils/store-persisted";
+  import {
+    PEPINO_COLORED_BUTTONS,
+    PEPINO_PADDING,
+    PEPINO_THEME,
+  } from "./lib/cconstants/persisted-keys";
 
   let imageElement: HTMLElement;
   let width: number;
 
-  let theme = writable<Theme>(THEMES[0]);
   let language = writable<Language>(LANGUAGES[0]);
   let background = writable<boolean>(true);
-  let coloredButtons = writable<boolean>(false);
-  let padding = writable<SettingPadding>(16);
+  let coloredButtons = writable<boolean>(
+    retrievePersisted<boolean>(PEPINO_COLORED_BUTTONS) ?? false
+  );
+  let theme = writable<Theme>(
+    retrievePersisted<Theme>(PEPINO_THEME) ?? THEMES[0]
+  );
+  let padding = writable<SettingPadding>(
+    retrievePersisted<SettingPadding>(PEPINO_PADDING) ?? 16
+  );
+
+  $: storePersisted(PEPINO_THEME, $theme);
+  $: storePersisted(PEPINO_PADDING, $padding);
+  $: storePersisted(PEPINO_COLORED_BUTTONS, $coloredButtons);
 </script>
 
 <main>

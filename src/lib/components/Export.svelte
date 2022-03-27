@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { PEPINO_IMAGE_SCALE } from "../cconstants/persisted-keys";
+
   import type { ImageScale, ImageType } from "../types";
 
   import createImage from "../utils/create-image";
+  import { retrievePersisted, storePersisted } from "../utils/store-persisted";
   import Arrow from "./assets/Arrow.svelte";
   import Dropdown from "./Dropdown.svelte";
   import ToolbarOption from "./ToolbarOption.svelte";
@@ -9,7 +12,8 @@
   export let imageElement: HTMLElement;
 
   let mode: ImageType = "png";
-  let scale: ImageScale = 2;
+  let scale: ImageScale =
+    retrievePersisted<ImageScale>(PEPINO_IMAGE_SCALE) ?? 2;
   let filename = "";
 
   const scales: ImageScale[] = [1, 2, 4, 8];
@@ -18,6 +22,8 @@
   function setScale(newScale: ImageScale) {
     scale = newScale;
   }
+
+  $: storePersisted(PEPINO_IMAGE_SCALE, scale);
 </script>
 
 <div class="container">
