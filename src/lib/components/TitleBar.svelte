@@ -1,5 +1,12 @@
 <script lang="ts">
+  import type { Writable } from "svelte/store";
+
   export let colored = false;
+  export let title: Writable<string>;
+
+  let fileTitle = $title;
+
+  $: $title = fileTitle;
 </script>
 
 <div class="title-bar">
@@ -8,7 +15,7 @@
     <span class="button" />
     <span class="button" />
   </div>
-  <input class="title" placeholder="Untitled-1" />
+  <input class="title" bind:value={fileTitle} placeholder="Untitled-1" />
 </div>
 
 <style lang="scss">

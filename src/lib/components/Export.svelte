@@ -10,11 +10,11 @@
   import ToolbarOption from "./ToolbarOption.svelte";
 
   export let imageElement: HTMLElement;
+  export let filename: string;
 
   let mode: ImageType = "png";
   let scale: ImageScale =
     retrievePersisted<ImageScale>(PEPINO_IMAGE_SCALE) ?? 2;
-  let filename = "";
 
   const scales: ImageScale[] = [1, 2, 4, 8];
   const modes: ImageType[] = ["png", "svg"];

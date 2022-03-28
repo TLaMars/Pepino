@@ -11,6 +11,7 @@
   import Gradient from "./Gradient.svelte";
   import TitleBar from "./TitleBar.svelte";
   import EXAMPLES from "../cconstants/examples";
+  import type { Writable } from "svelte/store";
 
   const example = EXAMPLES[Math.floor(Math.random() * EXAMPLES.length)];
 
@@ -22,6 +23,7 @@
   export let background: boolean;
   export let coloredButtons: boolean;
   export let padding: SettingPadding;
+  export let title: Writable<string>;
 
   let element: HTMLTextAreaElement;
   let editor: EditorFromTextArea | undefined = undefined;
@@ -89,7 +91,7 @@
   style="width: {elementWidth}; padding: {padding}px;"
 >
   <div class="pepino" {style}>
-    <TitleBar colored={coloredButtons} />
+    <TitleBar colored={coloredButtons} bind:title />
     <textarea bind:this={element} {value} />
   </div>
   {#if background}
@@ -103,7 +105,7 @@
     box-sizing: border-box;
     width: auto;
     min-width: 52rem;
-    max-width: 102rem;
+    max-width: 152rem;
   }
 
   .pepino {

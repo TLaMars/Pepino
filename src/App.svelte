@@ -23,6 +23,7 @@
   let imageElement: HTMLElement;
   let width: number;
 
+  let title = writable<string>("");
   let language = writable<Language>(LANGUAGES[0]);
   let background = writable<boolean>(true);
   let coloredButtons = writable<boolean>(
@@ -53,6 +54,7 @@
     {language}
     {padding}
     {lineNumbers}
+    title={$title}
   />
   <div class="container">
     <Pepino
@@ -64,6 +66,7 @@
       coloredButtons={$coloredButtons}
       padding={$padding}
       lineNumbers={$lineNumbers}
+      {title}
     />
     <WidthSelector bind:width />
   </div>

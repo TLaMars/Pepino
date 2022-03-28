@@ -35,8 +35,8 @@
       return;
     }
 
-    if (newWidth > 1020) {
-      width = 1020;
+    if (newWidth > 1520) {
+      width = 1520;
       return;
     }
 
@@ -88,7 +88,7 @@
 <style lang="scss">
   .container {
     min-width: 52rem;
-    max-width: 102rem;
+    max-width: 152rem;
     margin-top: 2rem;
     display: flex;
     align-items: center;

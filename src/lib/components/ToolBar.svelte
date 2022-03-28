@@ -18,6 +18,7 @@
   export let language: Writable<Language>;
   export let padding: Writable<SettingPadding>;
   export let lineNumbers: Writable<boolean>;
+  export let title: string;
 
   let showBackground = $background;
   let buttons = $coloredButtons;
@@ -96,7 +97,7 @@
         </ToolbarOption>
       </div>
     </Dropdown>
-    <Export {imageElement} />
+    <Export {imageElement} filename={title} />
   </div>
 </div>
 
