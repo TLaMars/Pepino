@@ -90,7 +90,7 @@
   bind:this={imageElement}
   style="width: {elementWidth}; padding: {padding}px;"
 >
-  <div class="pepino" {style}>
+  <div class="pepino" class:shadow={background} {style}>
     <TitleBar colored={coloredButtons} bind:title />
     <textarea bind:this={element} {value} />
   </div>
@@ -115,6 +115,9 @@
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
     font: var(--code);
-    box-shadow: var(--box-shadow);
+
+    &.shadow {
+      box-shadow: var(--box-shadow);
+    }
   }
 </style>
