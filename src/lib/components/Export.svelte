@@ -34,7 +34,7 @@
     Export
   </button>
   <Dropdown>
-    <button slot="button" class="dropdown-button">
+    <button slot="button" class="dropdown-button" aria-label="Export dropdown">
       <Arrow />
     </button>
     <div slot="dropdown" class="dropdown">

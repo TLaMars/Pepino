@@ -92,7 +92,7 @@
 >
   <div class="pepino" class:shadow={background} {style}>
     <TitleBar colored={coloredButtons} bind:title />
-    <textarea bind:this={element} {value} />
+    <textarea label="code" bind:this={element} {value} />
   </div>
   {#if background}
     <Gradient gradient={theme.gradient} background />

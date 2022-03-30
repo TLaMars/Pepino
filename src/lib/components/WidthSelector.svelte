@@ -55,6 +55,7 @@
 <div class="container" style="width: {elementWidth};" bind:clientWidth>
   <button
     class="handle"
+    aria-label="Left hand"
     class:active={expanding}
     on:mousedown={(e) => onMousedown(e, "LEFT")}
   >
@@ -78,6 +79,7 @@
   <span class="line" />
   <button
     class="handle right"
+    aria-label="Right hand"
     class:active={expanding}
     on:mousedown={(e) => onMousedown(e, "RIGHT")}
   >

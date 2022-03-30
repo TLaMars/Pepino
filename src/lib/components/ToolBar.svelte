@@ -69,7 +69,9 @@
 
   <div class="group">
     <Dropdown>
-      <button slot="button" class="setting-button"><Settings /></button>
+      <button slot="button" class="setting-button" aria-label="Settings"
+        ><Settings /></button
+      >
       <div slot="dropdown" class="dropdown">
         <div class="group">
           <ToolbarOption title="Background">
