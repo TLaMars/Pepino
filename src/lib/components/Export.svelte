@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PEPINO_IMAGE_SCALE } from "../cconstants/persisted-keys";
+  import { PEPINO_IMAGE_SCALE } from "../constants/persisted-keys";
 
   import type { ImageScale, ImageType } from "../types";
 

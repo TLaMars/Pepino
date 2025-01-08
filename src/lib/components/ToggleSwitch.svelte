@@ -4,7 +4,7 @@
 
 <label class="switch">
   <input type="checkbox" bind:checked />
-  <span class="slider round" />
+  <span class="slider round"></span>
 </label>
 
 <style>

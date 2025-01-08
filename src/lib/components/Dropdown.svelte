@@ -8,6 +8,8 @@
 
 <div
   class="container"
+  role="button"
+  tabindex="0"
   on:mouseenter={() => (visible = true)}
   on:touchstart={() => (visible = true)}
   on:mouseleave={() => (visible = false)}

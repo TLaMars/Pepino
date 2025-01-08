@@ -11,9 +11,9 @@
 
 <div class="title-bar">
   <div class="buttons" class:colored>
-    <span class="button" />
-    <span class="button" />
-    <span class="button" />
+    <span class="button"></span>
+    <span class="button"></span>
+    <span class="button"></span>
   </div>
   <input class="title" bind:value={fileTitle} placeholder="Untitled-1" />
 </div>

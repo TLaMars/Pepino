@@ -3,6 +3,7 @@ import LANGUAGES from "./languages";
 
 const EXAMPLES: Example[] = [
   {
+    // @ts-ignore
     language: LANGUAGES.find(({ name }) => name === "TSX"),
     code:
       'import React from "react";\n\n' +
@@ -15,6 +16,7 @@ const EXAMPLES: Example[] = [
       "export default Login ;",
   },
   {
+    // @ts-ignore
     language: LANGUAGES.find(({ name }) => name === "JavaScript"),
     code:
       "let money = 999;\n\n" +

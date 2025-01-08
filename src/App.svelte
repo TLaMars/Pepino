@@ -1,14 +1,13 @@
 <script lang="ts">
   import { writable } from "svelte/store";
 
-  import Pepino from "./lib/components/Pepino.svelte";
   import ToolBar from "./lib/components/ToolBar.svelte";
   import WidthSelector from "./lib/components/WidthSelector.svelte";
   import type { Theme, Language, SettingPadding } from "./lib/types";
-  import THEMES from "./lib/cconstants/themes";
-  import LANGUAGES from "./lib/cconstants/languages";
+  import THEMES from "./lib/constants/themes";
+  import LANGUAGES from "./lib/constants/languages";
   import "./lib/utils/code-mirror-imports";
-  import "../src/lib/styles/code-mirror.scss";
+  import "./lib/styles/code-mirror.scss";
   import {
     retrievePersisted,
     storePersisted,
@@ -18,7 +17,8 @@
     PEPINO_LINE_NUMBERS,
     PEPINO_PADDING,
     PEPINO_THEME,
-  } from "./lib/cconstants/persisted-keys";
+  } from "./lib/constants/persisted-keys";
+  import Pepino from "./lib/components/Pepino.svelte";
 
   let imageElement: HTMLElement;
   let width: number;
@@ -76,12 +76,17 @@
   main {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 
   .container {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    margin-top: 16rem;
+    align-items: center;
+    max-width: 100%;
+    justify-content: center;
     margin-bottom: 2rem;
   }
 </style>

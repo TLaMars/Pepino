@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { Writable } from "svelte/store";
 
-  import THEMES from "../cconstants/themes";
-  import LANGUAGES from "../cconstants/languages";
+  import THEMES from "../constants/themes";
+  import LANGUAGES from "../constants/languages";
   import ToolbarOption from "./ToolbarOption.svelte";
   import Select from "./Select.svelte";
   import type { Language, SelectOption, SettingPadding, Theme } from "../types";
@@ -36,11 +36,17 @@
   }));
 
   function updateSelectedTheme({ label }: SelectOption) {
-    $theme = THEMES.find(({ name }) => name === label);
+    const selectedTheme = THEMES.find(({ name }) => name === label);
+    if (selectedTheme) {
+      $theme = selectedTheme;
+    }
   }
 
   function updateSelectedLanguage({ label }: SelectOption) {
-    $language = LANGUAGES.find(({ name }) => name === label);
+    const selectedLanguage = LANGUAGES.find(({ name }) => name === label);
+    if (selectedLanguage) {
+      $language = selectedLanguage;
+    }
   }
 
   $: $background = showBackground;

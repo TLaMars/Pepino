@@ -4,7 +4,7 @@
   export let width: number | "auto" = "auto";
 
   let expanding = false;
-  let direction: "LEFT" | "RIGHT" = null;
+  let direction: "LEFT" | "RIGHT" | null = null;
   let clientWidth: number;
   let reset = false;
 
@@ -61,12 +61,14 @@
   >
     <ArrowLeft />
   </button>
-  <span class="line" />
-  <span
+  <span class="line"></span>
+  <button
     class="label"
+    aria-label="Reset width"
     on:click={onReset}
     on:mouseleave={() => (reset = false)}
     on:mouseenter={() => (reset = true)}
+    on:keydown={(e) => e.key === "Enter" && onReset()}
   >
     {#if width === "auto" && !reset}
       Auto
@@ -75,8 +77,8 @@
     {:else}
       {clientWidth}px
     {/if}
-  </span>
-  <span class="line" />
+  </button>
+  <span class="line"></span>
   <button
     class="handle right"
     aria-label="Right hand"
@@ -105,6 +107,7 @@
   .label {
     color: var(--white);
     background: var(--gray);
+    border: none;
     padding: 0.4rem 1rem;
     border-radius: var(--border-radius-xs);
     font-size: 1.4rem;

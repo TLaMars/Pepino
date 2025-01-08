@@ -1,16 +1,16 @@
 <script lang="ts">
   import CodeMirror, {
-    EditorConfiguration,
-    EditorFromTextArea,
+    type EditorConfiguration,
+    type EditorFromTextArea,
   } from "codemirror";
   import { onMount } from "svelte";
 
   import type { Theme, Language, SettingPadding } from "../types";
   import hljs from "../utils/hljs-helper";
-  import LANGUAGES from "../cconstants/languages";
+  import LANGUAGES from "../constants/languages";
   import Gradient from "./Gradient.svelte";
   import TitleBar from "./TitleBar.svelte";
-  import EXAMPLES from "../cconstants/examples";
+  import EXAMPLES from "../constants/examples";
   import type { Writable } from "svelte/store";
 
   const example = EXAMPLES[Math.floor(Math.random() * EXAMPLES.length)];
@@ -45,7 +45,7 @@
     });
 
     editor.on("change", () => {
-      value = editor.getValue();
+      value = editor?.getValue() ?? "";
     });
   });
 
@@ -80,6 +80,7 @@
   $: changeOption("lineNumbers", lineNumbers);
   $: elementWidth = width === "auto" ? "auto" : `${width}px`;
   $: style = Object.keys(theme.colors).reduce<string>(
+    // @ts-ignore -- fix this
     (styleVars, key) => (styleVars += `--code-${key}: ${theme.colors[key]}; `),
     ""
   );
@@ -92,7 +93,7 @@
 >
   <div class="pepino" class:shadow={background} {style}>
     <TitleBar colored={coloredButtons} bind:title />
-    <textarea label="code" bind:this={element} {value} />
+    <textarea bind:this={element} bind:value></textarea>
   </div>
   {#if background}
     <Gradient gradient={theme.gradient} background />

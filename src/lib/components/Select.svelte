@@ -25,10 +25,10 @@
 <div class="container" use:outsideClick={() => (visible = false)}>
   <button class="select" on:click={() => (visible = !visible)}>
     <div class="left">
-      {#if selectedOption.gradient}
+      {#if selectedOption?.gradient}
         <Gradient gradient={selectedOption.gradient} smallSquare />
       {/if}
-      <span>{selectedOption.label}</span>
+      <span>{selectedOption?.label}</span>
     </div>
     <Arrow />
   </button>
@@ -42,7 +42,7 @@
         <SelectOption
           gradient={option.gradient}
           label={option.label}
-          active={selectedOption.label === option.label}
+          active={selectedOption?.label === option.label}
           on:click={() => handleClick(option)}
         />
       {/each}
@@ -67,9 +67,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 15rem;
+    min-width: 15rem;
     text-transform: capitalize;
     margin: 0;
+
+    gap: 0.5rem;
 
     .left {
       display: flex;
