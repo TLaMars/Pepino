@@ -78,7 +78,6 @@
   $: checkLanguage(value);
   $: changeMode(language);
   $: changeOption("lineNumbers", lineNumbers);
-  $: elementWidth = width === "auto" ? "auto" : `${width}px`;
   $: style = Object.keys(theme.colors).reduce<string>(
     // @ts-ignore -- fix this
     (styleVars, key) => (styleVars += `--code-${key}: ${theme.colors[key]}; `),
@@ -89,7 +88,9 @@
 <div
   class="container"
   bind:this={imageElement}
-  style="width: {elementWidth}; padding: {padding}px;"
+  style="width: {width === 'auto'
+    ? 'auto'
+    : `${width}px`}; padding: {padding}px;"
 >
   <div class="pepino" class:shadow={background} {style}>
     <TitleBar colored={coloredButtons} bind:title />

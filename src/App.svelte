@@ -3,11 +3,8 @@
 
   import ToolBar from "./lib/components/ToolBar.svelte";
   import WidthSelector from "./lib/components/WidthSelector.svelte";
-  import type { Theme, Language, SettingPadding } from "./lib/types";
-  import THEMES from "./lib/constants/themes";
+  import type { Language, SettingPadding } from "./lib/types";
   import LANGUAGES from "./lib/constants/languages";
-  import "./lib/utils/code-mirror-imports";
-  import "./lib/styles/code-mirror.scss";
   import {
     retrievePersisted,
     storePersisted,
@@ -18,7 +15,9 @@
     PEPINO_PADDING,
     PEPINO_THEME,
   } from "./lib/constants/persisted-keys";
-  import Pepino from "./lib/components/Pepino.svelte";
+  import PepinoShiki from "./lib/components/v2/Pepino-shiki.svelte";
+  import Themes from "./lib/constants/v2/themes";
+  import type { Theme } from "./lib/models/theme";
 
   let imageElement: HTMLElement;
   let width: number;
@@ -30,7 +29,7 @@
     retrievePersisted<boolean>(PEPINO_COLORED_BUTTONS) ?? false
   );
   let theme = writable<Theme>(
-    retrievePersisted<Theme>(PEPINO_THEME) ?? THEMES[0]
+    retrievePersisted<Theme>(PEPINO_THEME) ?? Themes[0]
   );
   let padding = writable<SettingPadding>(
     retrievePersisted<SettingPadding>(PEPINO_PADDING) ?? 16
@@ -57,17 +56,7 @@
     title={$title}
   />
   <div class="container">
-    <Pepino
-      language={$language}
-      theme={$theme}
-      bind:imageElement
-      {width}
-      background={$background}
-      coloredButtons={$coloredButtons}
-      padding={$padding}
-      lineNumbers={$lineNumbers}
-      {title}
-    />
+    <PepinoShiki {width} {title} padding={$padding} theme={$theme} />
     <WidthSelector bind:width />
   </div>
 </main>

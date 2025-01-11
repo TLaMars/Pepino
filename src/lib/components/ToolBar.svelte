@@ -1,15 +1,16 @@
 <script lang="ts">
   import type { Writable } from "svelte/store";
 
-  import THEMES from "../constants/themes";
   import LANGUAGES from "../constants/languages";
-  import ToolbarOption from "./ToolbarOption.svelte";
-  import Select from "./Select.svelte";
-  import type { Language, SelectOption, SettingPadding, Theme } from "../types";
-  import Export from "./Export.svelte";
-  import Dropdown from "./Dropdown.svelte";
+  import Themes from "../constants/v2/themes";
+  import type { Theme } from "../models/theme";
+  import type { Language, SelectOption, SettingPadding } from "../types";
   import Settings from "./assets/Settings.svelte";
+  import Dropdown from "./Dropdown.svelte";
+  import Export from "./Export.svelte";
+  import Select from "./Select.svelte";
   import ToggleSwitch from "./ToggleSwitch.svelte";
+  import ToolbarOption from "./ToolbarOption.svelte";
 
   export let imageElement: HTMLElement;
   export let background: Writable<boolean>;
@@ -26,7 +27,7 @@
 
   const paddings: SettingPadding[] = [16, 32, 64, 128];
 
-  const themeOptions: SelectOption[] = THEMES.map(({ name, gradient }) => ({
+  const themeOptions: SelectOption[] = Themes.map(({ name, gradient }) => ({
     label: name,
     gradient,
   }));
@@ -36,7 +37,7 @@
   }));
 
   function updateSelectedTheme({ label }: SelectOption) {
-    const selectedTheme = THEMES.find(({ name }) => name === label);
+    const selectedTheme = Themes.find(({ name }) => name === label);
     if (selectedTheme) {
       $theme = selectedTheme;
     }

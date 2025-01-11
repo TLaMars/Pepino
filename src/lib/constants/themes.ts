@@ -8,22 +8,22 @@ const THEMES: Theme[] = [
       color2: "#7f7fc1",
     },
     colors: {
-      atom: "#9f88ff",
-      attribute: "#73a7f5",
+      atom: "#9f88ff", // --pepino-token-constant
+      attribute: "#73a7f5", // --pepino-token-link
       background: "rgba(22, 22, 32, 0.95)",
       builtin: "#a2c8ff",
-      comment: "#505a6d",
-      definition: "#91b5ff",
-      keyword: "#d389ff",
+      comment: "#505a6d", // --pepino-token-comment
+      definition: "#91b5ff", // --pepino-token-function
+      keyword: "#d389ff", // --pepino-token-keyword
       meta: "#d9e8ff",
-      number: "#f7cc56",
+      number: "#f7cc56", // --pepino-token-number
       operator: "#d389ff",
-      property: "#6b94ff",
-      string: "#86ffce",
+      property: "#6b94ff", // --pepino-token-property
+      string: "#86ffce", // --pepino-token-string-expression // --pepino-token-string
       tag: "#c7e4ff",
-      text: "#eef6ff",
+      text: "#eef6ff", // --pepino-foreground / --pepino-token-punctuation
       type: "#84c2ff",
-      variable: "#73a7f5",
+      variable: "#73a7f5", // --pepino-token-parameter
       variable2: "#a9d6ff",
       variable3: "#5c89ff",
     },
