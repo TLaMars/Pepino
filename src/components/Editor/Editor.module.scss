@@ -1,0 +1,44 @@
+.editor {
+  position: relative;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  width: 100%;
+
+  :global(.line) {
+    display: inline-block;
+    width: 100%;
+    padding: 0 1.6rem;
+    margin: 0 -1.6rem;
+  }
+
+  :global(.shiki) {
+    background-color: transparent !important;
+  }
+}
+
+.editor,
+.textarea {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-family: var(--font-jetbrains-mono), monospace;
+  white-space: pre-wrap;
+}
+
+.textarea {
+  background-color: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+  overflow: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--pepino-foreground);
+  caret-shape: block;
+  text-size-adjust: none;
+}
