@@ -9,7 +9,7 @@ const THEMES: Theme[] = [
         direction: "to bottom right",
       },
     },
-    colors: {
+    cssTokens: {
       "token-constant": "#9f88ff",
       "token-link": "#73a7f5",
       "token-comment": "#505a6d",
@@ -23,6 +23,8 @@ const THEMES: Theme[] = [
       "token-parameter": "#73a7f5",
       foreground: "#eef6ff",
       background: "rgba(22, 22, 32, 0.95)",
+      "font-family": "var(--font-cascadia-mono), monospace",
+      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
   {
@@ -33,7 +35,7 @@ const THEMES: Theme[] = [
         direction: "to bottom right",
       },
     },
-    colors: {
+    cssTokens: {
       "token-constant": "#d78f47",
       "token-link": "#8cbf7e",
       "token-comment": "#675c52",
@@ -47,6 +49,8 @@ const THEMES: Theme[] = [
       "token-parameter": "#8cbf7e",
       foreground: "#fff7e4",
       background: "rgba(35, 30, 25, 0.95)",
+      "font-family": "var(--font-cascadia-mono), monospace",
+      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
   {
@@ -57,7 +61,7 @@ const THEMES: Theme[] = [
         direction: "to bottom right",
       },
     },
-    colors: {
+    cssTokens: {
       "token-constant": "#ff7676",
       "token-link": "#6eb2ff",
       "token-comment": "#677f94",
@@ -71,6 +75,8 @@ const THEMES: Theme[] = [
       "token-parameter": "#6eb2ff",
       foreground: "#fff",
       background: "rgba(25, 29, 34, 0.85)",
+      "font-family": "var(--font-cascadia-mono), monospace",
+      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
   {
@@ -81,7 +87,7 @@ const THEMES: Theme[] = [
         direction: "to bottom right",
       },
     },
-    colors: {
+    cssTokens: {
       "token-constant": "#938bff",
       "token-link": "#ffd257",
       "token-comment": "#b18e76",
@@ -95,6 +101,8 @@ const THEMES: Theme[] = [
       "token-parameter": "#ffd257",
       foreground: "#fff",
       background: "rgba(25, 29, 34, 0.85)",
+      "font-family": "var(--font-cascadia-mono), monospace",
+      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
   {
@@ -105,7 +113,7 @@ const THEMES: Theme[] = [
         direction: "to bottom right",
       },
     },
-    colors: {
+    cssTokens: {
       "token-constant": "#ae79ff",
       "token-link": "#77c500",
       "token-comment": "#73885c",
@@ -119,6 +127,8 @@ const THEMES: Theme[] = [
       "token-parameter": "#77c500",
       foreground: "#fff",
       background: "rgba(25, 29, 34, 0.85)",
+      "font-family": "var(--font-cascadia-mono), monospace",
+      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
   {
@@ -129,7 +139,7 @@ const THEMES: Theme[] = [
         direction: "to bottom right",
       },
     },
-    colors: {
+    cssTokens: {
       "token-constant": "#ffb347",
       "token-link": "#6ebf8b",
       "token-comment": "#b8c4aa",
@@ -143,6 +153,8 @@ const THEMES: Theme[] = [
       "token-parameter": "#4d8b5b",
       foreground: "#ffffff",
       background: "rgba(25, 34, 25, 0.95)",
+      "font-family": "var(--font-cascadia-mono), monospace",
+      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
   {
@@ -153,7 +165,7 @@ const THEMES: Theme[] = [
         direction: "to bottom right",
       },
     },
-    colors: {
+    cssTokens: {
       "token-constant": "#78c9ff",
       "token-link": "#4de6b7",
       "token-comment": "#436a8a",
@@ -167,6 +179,8 @@ const THEMES: Theme[] = [
       "token-parameter": "#4de6b7",
       foreground: "#ffffff",
       background: "rgba(10, 22, 34, 0.95)",
+      "font-family": "var(--font-cascadia-mono), monospace",
+      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
   {
@@ -177,7 +191,7 @@ const THEMES: Theme[] = [
         direction: "to bottom right",
       },
     },
-    colors: {
+    cssTokens: {
       "token-constant": "#fc93d2",
       "token-link": "#ecb3dd",
       "token-comment": "#6f586a",
@@ -191,6 +205,8 @@ const THEMES: Theme[] = [
       "token-parameter": "#ecb3dd",
       foreground: "#fff8f8",
       background: "rgba(34, 24, 30, 0.95)",
+      "font-family": "var(--font-cascadia-mono), monospace",
+      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
 ];

@@ -24,7 +24,11 @@
   .title {
     grid-column: 2;
     text-align: center;
-    font-size: 1.4rem;
+    font-family: var(--pepino-font-family);
+    color: var(--pepino-foreground);
+    background: transparent;
+    border: none;
+    outline: none;
   }
 
   .buttons {
@@ -42,9 +46,5 @@
     cursor: pointer;
     transition: background-color 0.2s;
     background-color: #dddddd;
-
-    &:hover {
-      background-color: var(--pepino-hover);
-    }
   }
 }

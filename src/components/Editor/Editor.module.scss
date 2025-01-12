@@ -20,8 +20,12 @@
 .textarea {
   font-size: 1.5rem;
   line-height: 1.5;
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: var(--pepino-font-family), monospace !important;
   white-space: pre-wrap;
+
+  :global(code) {
+    font-family: var(--pepino-font-family), monospace !important;
+  }
 }
 
 .textarea {

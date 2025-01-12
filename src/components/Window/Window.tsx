@@ -14,7 +14,7 @@ const WindowTitleBar: React.FC = () => {
         <div className={$.button} />
       </div>
       {/* TODO: make input */}
-      <span className={$.title}>Pepino</span>
+      <input className={$.title} placeholder="Untitled-1" />
     </div>
   );
 };
@@ -24,10 +24,10 @@ const Window: React.FC = () => {
 
   const styleVars = useMemo(
     () =>
-      Object.keys(theme.colors).reduce<Record<string, string>>(
+      Object.keys(theme.cssTokens).reduce<Record<string, string>>(
         (styleVars, key) => {
-          const typedKey = key as keyof typeof theme.colors;
-          styleVars[`--pepino-${typedKey}`] = theme.colors[typedKey];
+          const value = key as keyof typeof theme.cssTokens;
+          styleVars[`--pepino-${key}`] = theme.cssTokens[value];
           return styleVars;
         },
         {}

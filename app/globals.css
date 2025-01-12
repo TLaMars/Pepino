@@ -1,7 +1,7 @@
 :root {
   --background: #0a0a0a;
+  --background-surface: #1c1c1e;
   --foreground: #ededed;
-  --editor-box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6);
 
   font-size: 62.5%;
 }
