@@ -5,6 +5,20 @@ import THEMES from "src/constants/themes";
 import GradientBackground from "../GradientBackground/GradientBackground";
 import $ from "./Window.module.scss";
 
+const WindowTitleBar: React.FC = () => {
+  return (
+    <div className={$.titleBar}>
+      <div className={$.buttons}>
+        <div className={$.button} />
+        <div className={$.button} />
+        <div className={$.button} />
+      </div>
+      {/* TODO: make input */}
+      <span className={$.title}>Pepino</span>
+    </div>
+  );
+};
+
 const Window: React.FC = () => {
   const theme = THEMES[0];
 
@@ -30,6 +44,7 @@ const Window: React.FC = () => {
         />
       )}
       <div className={$.window} style={styleVars}>
+        <WindowTitleBar />
         <Editor />
       </div>
     </div>
