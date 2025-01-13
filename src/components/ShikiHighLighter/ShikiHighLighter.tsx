@@ -6,9 +6,10 @@ import getShiki from "src/utils/get-shiki";
 type Props = {
   code: string;
   language: Language;
+  className?: string;
 };
 
-const ShikiHighLighter: React.FC<Props> = ({ code, language }) => {
+const ShikiHighLighter: React.FC<Props> = ({ code, language, className }) => {
   const [highlightedCode, setHighlightedCode] = React.useState("");
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const ShikiHighLighter: React.FC<Props> = ({ code, language }) => {
 
   return (
     <div
+      className={className}
       dangerouslySetInnerHTML={{
         __html: highlightedCode,
       }}

@@ -2,6 +2,7 @@
   --background: #0a0a0a;
   --background-surface: #1c1c1e;
   --foreground: #ededed;
+  --border-color: rgba(255, 255, 255, 0.145);
 
   font-size: 62.5%;
 }
@@ -30,4 +31,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+svg {
+  width: 1em;
+  height: 1em;
 }

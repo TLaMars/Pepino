@@ -37,16 +37,17 @@ const Window: React.FC = () => {
 
   return (
     <div className={$.frame}>
-      {theme.background.gradient && (
-        <GradientBackground
-          colors={theme.background.gradient.colors}
-          direction={theme.background.gradient.direction}
-        />
-      )}
       <div className={$.window} style={styleVars}>
         <WindowTitleBar />
         <Editor />
       </div>
+      {theme.background.gradient && (
+        <GradientBackground
+          colors={theme.background.gradient.colors}
+          direction={theme.background.gradient.direction}
+          zIndex={-1}
+        />
+      )}
     </div>
   );
 };

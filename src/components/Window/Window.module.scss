@@ -12,7 +12,8 @@
 .frame {
   position: relative;
   padding: 3.2rem;
-  width: 52rem;
+  min-width: 52rem;
+  max-width: 108rem;
 }
 
 .titleBar {

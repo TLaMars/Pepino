@@ -2,7 +2,7 @@ import type { Theme } from "src/models/theme";
 
 const THEMES: Theme[] = [
   {
-    name: "lunar glow",
+    name: "Lunar",
     background: {
       gradient: {
         colors: ["#2a2e3d", "#7f7fc1"],
@@ -28,7 +28,7 @@ const THEMES: Theme[] = [
     },
   },
   {
-    name: "forest ember",
+    name: "Forest",
     background: {
       gradient: {
         colors: ["#6b4c35", "#bf6340"],
@@ -54,7 +54,7 @@ const THEMES: Theme[] = [
     },
   },
   {
-    name: "beach",
+    name: "Beach",
     background: {
       gradient: {
         colors: ["#4facfe", "#00f2fe"],
@@ -80,7 +80,7 @@ const THEMES: Theme[] = [
     },
   },
   {
-    name: "sunset",
+    name: "Sunset",
     background: {
       gradient: {
         colors: ["#ff6a00", "#ee0979"],
@@ -106,33 +106,7 @@ const THEMES: Theme[] = [
     },
   },
   {
-    name: "swamp",
-    background: {
-      gradient: {
-        colors: ["#77c500", "#001d18"],
-        direction: "to bottom right",
-      },
-    },
-    cssTokens: {
-      "token-constant": "#ae79ff",
-      "token-link": "#77c500",
-      "token-comment": "#73885c",
-      "token-function": "#77c500",
-      "token-keyword": "#d4d648",
-      "token-number": "#ae79ff",
-      "token-property": "#b9fc00",
-      "token-string": "#ace255",
-      "token-string-expression": "#ace255",
-      "token-punctuation": "#fff",
-      "token-parameter": "#77c500",
-      foreground: "#fff",
-      background: "rgba(25, 29, 34, 0.85)",
-      "font-family": "var(--font-cascadia-mono), monospace",
-      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
-    },
-  },
-  {
-    name: "forest dawn",
+    name: "Swamp",
     background: {
       gradient: {
         colors: ["#85bb65", "#f5d76e"],
@@ -158,7 +132,7 @@ const THEMES: Theme[] = [
     },
   },
   {
-    name: "aurora sky",
+    name: "Aurora",
     background: {
       gradient: {
         colors: ["#23395d", "#1ca4a7"],
@@ -184,7 +158,7 @@ const THEMES: Theme[] = [
     },
   },
   {
-    name: "cherry blossom",
+    name: "Blossom",
     background: {
       gradient: {
         colors: ["#f9c5d1", "#fde9e0"],

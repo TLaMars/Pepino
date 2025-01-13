@@ -1,4 +1,6 @@
 .editor {
+  display: grid;
+  grid-template: 1fr / 1fr;
   position: relative;
   font-size: 1.5rem;
   line-height: 1.5;
@@ -16,12 +18,13 @@
   }
 }
 
-.editor,
-.textarea {
+.textarea,
+.highlighter {
   font-size: 1.5rem;
   line-height: 1.5;
   font-family: var(--pepino-font-family), monospace !important;
   white-space: pre-wrap;
+  grid-area: 1 / 1 / 2 / 2;
 
   :global(code) {
     font-family: var(--pepino-font-family), monospace !important;
@@ -34,12 +37,13 @@
   resize: none;
   outline: none;
   overflow: hidden;
+  z-index: 2;
 
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
   background: transparent;
   color: transparent;
   caret-color: var(--pepino-foreground);
