@@ -13,7 +13,7 @@ type Option = {
 
 type Props = {
   options: Option[];
-  selectedValue: string;
+  selectedValue?: string;
   onChange: (value: string) => void;
   width?: string;
 };
@@ -56,6 +56,7 @@ const Select: React.FC<Props> = ({
               key={option.value}
               onClick={() => {
                 onChange(option.value);
+                setIsOpen(false);
               }}
             >
               {option.icon && <div className={$.icon}>{option.icon}</div>}

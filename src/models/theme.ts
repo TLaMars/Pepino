@@ -1,4 +1,5 @@
 export type Theme = {
+  id: string;
   name: string;
   background: Background;
   cssTokens: {

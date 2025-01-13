@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
 import Editor from "../Editor/Editor";
-import THEMES from "src/constants/themes";
 
+import { useAtomValue } from "jotai";
+import { themeAtom } from "src/store/control-settings";
 import GradientBackground from "../GradientBackground/GradientBackground";
 import $ from "./Window.module.scss";
 
@@ -13,14 +14,13 @@ const WindowTitleBar: React.FC = () => {
         <div className={$.button} />
         <div className={$.button} />
       </div>
-      {/* TODO: make input */}
       <input className={$.title} placeholder="Untitled-1" />
     </div>
   );
 };
 
 const Window: React.FC = () => {
-  const theme = THEMES[0];
+  const theme = useAtomValue(themeAtom);
 
   const styleVars = useMemo(
     () =>

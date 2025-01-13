@@ -1,7 +1,8 @@
 import type { Theme } from "src/models/theme";
 
-const THEMES: Theme[] = [
-  {
+const THEMES: Record<string, Theme> = {
+  lunar: {
+    id: "lunar",
     name: "Lunar",
     background: {
       gradient: {
@@ -27,7 +28,8 @@ const THEMES: Theme[] = [
       "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
-  {
+  forest: {
+    id: "forest",
     name: "Forest",
     background: {
       gradient: {
@@ -53,7 +55,8 @@ const THEMES: Theme[] = [
       "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
-  {
+  beach: {
+    id: "beach",
     name: "Beach",
     background: {
       gradient: {
@@ -79,7 +82,8 @@ const THEMES: Theme[] = [
       "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
-  {
+  sunset: {
+    id: "sunset",
     name: "Sunset",
     background: {
       gradient: {
@@ -105,7 +109,8 @@ const THEMES: Theme[] = [
       "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
-  {
+  swamp: {
+    id: "swamp",
     name: "Swamp",
     background: {
       gradient: {
@@ -131,7 +136,8 @@ const THEMES: Theme[] = [
       "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
-  {
+  aurora: {
+    id: "aurora",
     name: "Aurora",
     background: {
       gradient: {
@@ -157,7 +163,8 @@ const THEMES: Theme[] = [
       "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
-  {
+  blossom: {
+    id: "blossom",
     name: "Blossom",
     background: {
       gradient: {
@@ -183,6 +190,6 @@ const THEMES: Theme[] = [
       "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
     },
   },
-];
+};
 
 export default THEMES;

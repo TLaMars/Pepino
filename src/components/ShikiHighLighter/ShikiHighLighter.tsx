@@ -15,14 +15,12 @@ const ShikiHighLighter: React.FC<Props> = ({ code, language, className }) => {
   useEffect(() => {
     const runShiki = async () => {
       const shiki = await getShiki();
-
       await shiki.loadLanguage(language.import());
 
       const html = shiki.codeToHtml(code, {
         lang: language.name.toLowerCase(),
         theme: "lamars.io",
       });
-      console.log(html);
 
       setHighlightedCode(html);
     };
