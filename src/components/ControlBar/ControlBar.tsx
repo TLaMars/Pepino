@@ -6,37 +6,44 @@ import LANGUAGES from "src/constants/languages";
 import $ from "./ControlBar.module.scss";
 import THEMES from "src/constants/themes";
 import GradientBackground from "../GradientBackground/GradientBackground";
-import { useAtom } from "jotai";
-import { languageAtom, themeAtom } from "src/store/control-settings";
+import { useAtom, useAtomValue } from "jotai";
+import {
+  autoLanguageAtom,
+  detectedLanguageAtom,
+  languageAtom,
+  themeAtom,
+} from "src/store/control-settings";
 
 const ControlBar: React.FC = () => {
   const [theme, setTheme] = useAtom(themeAtom);
   const [language, setLanguage] = useAtom(languageAtom);
-
-  console.log(language);
+  const [autoLanguage, setAutoLanguage] = useAtom(autoLanguageAtom);
+  const detectedLanguage = useAtomValue(detectedLanguageAtom);
 
   return (
     <div className={$.container}>
       <Select
         options={[
           {
-            label: "Auto",
-            value: "auto-detect",
+            label: `Auto (${detectedLanguage?.name})`,
+            value: "Auto-Detect",
+            showValueInOptions: true,
           },
           ...Object.values(LANGUAGES).map((value) => ({
             label: value.name,
             value: value.id,
           })),
         ]}
-        selectedValue={language.id}
+        selectedValue={autoLanguage ? "Auto-Detect" : language.id}
         onChange={(value) => {
-          if (value === "auto-detect") {
+          if (value === "Auto-Detect") {
+            setAutoLanguage(true);
             return;
           }
-          const language = LANGUAGES[value];
-          if (language) setLanguage(language);
+          setAutoLanguage(false);
+          setLanguage(LANGUAGES[value]);
         }}
-        width="15rem"
+        width="18rem"
       />
       <Select
         options={Object.values(THEMES).map((value) => ({
@@ -50,10 +57,7 @@ const ControlBar: React.FC = () => {
           ),
         }))}
         selectedValue={theme.id}
-        onChange={(value) => {
-          const theme = THEMES[value];
-          if (theme) setTheme(theme);
-        }}
+        onChange={(value) => setTheme(THEMES[value])}
         width="15rem"
       />
     </div>

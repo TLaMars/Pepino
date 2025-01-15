@@ -8,6 +8,7 @@ import cx from "src/utils/classnames";
 type Option = {
   value: string;
   label: string;
+  showValueInOptions?: boolean;
   icon?: React.ReactNode;
 };
 
@@ -60,7 +61,9 @@ const Select: React.FC<Props> = ({
               }}
             >
               {option.icon && <div className={$.icon}>{option.icon}</div>}
-              {option.label}
+              <span>
+                {option.showValueInOptions ? option.value : option.label}
+              </span>
             </button>
           ))}
         </div>

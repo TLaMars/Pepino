@@ -1,3 +1,4 @@
+import { HighlighterCore } from "@shikijs/core";
 import React, { useEffect } from "react";
 
 import { Language } from "src/models/language";
@@ -11,22 +12,28 @@ type Props = {
 
 const ShikiHighLighter: React.FC<Props> = ({ code, language, className }) => {
   const [highlightedCode, setHighlightedCode] = React.useState("");
+  const [shiki, setShiki] = React.useState<HighlighterCore>();
 
   useEffect(() => {
-    const runShiki = async () => {
-      const shiki = await getShiki();
-      await shiki.loadLanguage(language.import());
+    getShiki().then((shiki) => {
+      setShiki(shiki);
+    });
+  }, []);
 
-      const html = shiki.codeToHtml(code, {
-        lang: language.name.toLowerCase(),
+  useEffect(() => {
+    if (!shiki) return;
+
+    const highlight = async () => {
+      await shiki.loadLanguage(() => language.import());
+      const result = shiki.codeToHtml(code, {
+        lang: language.id,
         theme: "lamars.io",
       });
-
-      setHighlightedCode(html);
+      setHighlightedCode(result);
     };
 
-    runShiki();
-  }, [code, language]);
+    highlight();
+  }, [code, language, shiki]);
 
   return (
     <div

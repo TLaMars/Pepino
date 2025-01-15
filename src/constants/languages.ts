@@ -4,7 +4,7 @@ const LANGUAGES: Record<string, Language> = {
   tsx: {
     id: "tsx",
     name: "TSX",
-    import: () => import("@shikijs/langs/typescript"),
+    import: () => import("@shikijs/langs/tsx"),
   },
   javascript: {
     id: "javascript",
