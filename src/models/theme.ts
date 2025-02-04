@@ -17,7 +17,7 @@ export type Theme = {
     "token-parameter": string;
     // Custom tokens
     foreground: string;
-    background: string;
+    "window-background": string;
     "font-family": string;
     "box-shadow": string;
   };

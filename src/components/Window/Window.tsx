@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
+import React, { RefObject, useEffect, useMemo, useRef } from "react";
 import Editor from "../Editor/Editor";
 
-import { useAtomValue } from "jotai";
-import { themeAtom } from "src/store/control-settings";
+import { useAtomValue, useSetAtom } from "jotai";
+import { imageRefAtom, themeAtom } from "src/store/control-settings";
 import GradientBackground from "../GradientBackground/GradientBackground";
 import $ from "./Window.module.scss";
 
@@ -20,7 +20,15 @@ const WindowTitleBar: React.FC = () => {
 };
 
 const Window: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
   const theme = useAtomValue(themeAtom);
+  const setImageRef = useSetAtom(imageRefAtom);
+
+  useEffect(() => {
+    if (ref) {
+      setImageRef(ref as RefObject<HTMLDivElement>);
+    }
+  }, [ref, setImageRef]);
 
   const styleVars = useMemo(
     () =>
@@ -36,7 +44,7 @@ const Window: React.FC = () => {
   );
 
   return (
-    <div className={$.frame}>
+    <div className={$.frame} ref={ref}>
       <div className={$.window} style={styleVars}>
         <WindowTitleBar />
         <Editor />

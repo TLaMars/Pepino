@@ -1,9 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
+import ControlBar from "src/components/ControlBar/ControlBar";
 import Window from "src/components/Window/Window";
 import styles from "./page.module.scss";
-import ControlBar from "src/components/ControlBar/ControlBar";
-import dynamic from "next/dynamic";
 
 const Pepino: React.FC = () => {
   return (

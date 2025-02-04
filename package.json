@@ -12,6 +12,8 @@
     "@shikijs/core": "^1.26.1",
     "@shikijs/engine-oniguruma": "^1.26.1",
     "@shikijs/langs": "^1.26.1",
+    "dom-to-image-more": "^3.5.0",
+    "file-saver": "^2.0.5",
     "highlight.js": "^11.11.1",
     "jotai": "^2.11.0",
     "jotai-location": "^0.5.5",
@@ -22,6 +24,8 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@svgr/webpack": "^8.1.0",
+    "@types/dom-to-image": "^2.6.7",
+    "@types/file-saver": "^2.0.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
