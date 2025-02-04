@@ -4,7 +4,12 @@
   --foreground: #ededed;
   --border-color: rgba(255, 255, 255, 0.145);
   --primary: rgba(97, 147, 255, 1);
-  --primary-opaque: rgba(97, 147, 255, 0.2);
+  --primary-dark: rgb(27, 37, 59);
+
+  /* apple window button colors; */
+  --red: #ff605c;
+  --yellow: #ffbd44;
+  --green: #00ca4e;
 
   font-size: 62.5%;
 }

@@ -12,27 +12,9 @@ import {
 import createImage, { ImageType } from "src/utils/create-image";
 
 import $ from "./Controls.module.scss";
+import SCALES from "src/constants/scales";
 
 const FORMATS: ImageType[] = ["png", "svg"];
-
-const SCALES = [
-  {
-    label: "1x",
-    value: 1,
-  },
-  {
-    label: "2x",
-    value: 2,
-  },
-  {
-    label: "4x",
-    value: 4,
-  },
-  {
-    label: "8x",
-    value: 8,
-  },
-];
 
 const ImageControl: React.FC = () => {
   const imageRef = useAtomValue(imageRefAtom);
@@ -71,7 +53,7 @@ const ImageControl: React.FC = () => {
             ))}
           </div>
         </SettingWrapper>
-        <SettingWrapper title="Download as  ">
+        <SettingWrapper title="Download as">
           <div className={$.row}>
             {FORMATS.map((f) => (
               <Button

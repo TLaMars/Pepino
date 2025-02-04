@@ -11,7 +11,6 @@
 
 .frame {
   position: relative;
-  padding: 3.2rem;
   min-width: 52rem;
   max-width: 108rem;
 }
@@ -21,6 +20,7 @@
   grid-template-columns: 1fr 5fr 1fr;
   gap: 0.4rem;
   align-items: center;
+  min-height: 1.6rem;
 
   .title {
     grid-column: 2;
@@ -47,5 +47,17 @@
     cursor: pointer;
     transition: background-color 0.2s;
     background-color: #dddddd;
+
+    &.red {
+      background: var(--red);
+    }
+
+    &.yellow {
+      background: var(--yellow);
+    }
+
+    &.green {
+      background: var(--green);
+    }
   }
 }

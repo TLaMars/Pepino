@@ -3,6 +3,11 @@
   gap: 0.4rem;
 }
 
+.rowBig {
+  display: flex;
+  gap: 1rem;
+}
+
 .column {
   display: flex;
   flex-direction: column;

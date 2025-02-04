@@ -2,19 +2,30 @@ import React, { RefObject, useEffect, useMemo, useRef } from "react";
 import Editor from "../Editor/Editor";
 
 import { useAtomValue, useSetAtom } from "jotai";
-import { imageRefAtom, themeAtom } from "src/store/control-settings";
+import {
+  backgroundAtom,
+  coloredWindowButtonsAtom,
+  imageRefAtom,
+  paddingAtom,
+  themeAtom,
+  windowTitleAtom,
+} from "src/store/control-settings";
 import GradientBackground from "../GradientBackground/GradientBackground";
 import $ from "./Window.module.scss";
+import cx from "src/utils/classnames";
 
 const WindowTitleBar: React.FC = () => {
+  const coloredButtons = useAtomValue(coloredWindowButtonsAtom);
+  const showTitle = useAtomValue(windowTitleAtom);
+
   return (
     <div className={$.titleBar}>
       <div className={$.buttons}>
-        <div className={$.button} />
-        <div className={$.button} />
-        <div className={$.button} />
+        <div className={cx($.button, coloredButtons && $.red)} />
+        <div className={cx($.button, coloredButtons && $.yellow)} />
+        <div className={cx($.button, coloredButtons && $.green)} />
       </div>
-      <input className={$.title} placeholder="Untitled-1" />
+      {showTitle && <input className={$.title} placeholder="Untitled-1" />}
     </div>
   );
 };
@@ -23,6 +34,8 @@ const Window: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const theme = useAtomValue(themeAtom);
   const setImageRef = useSetAtom(imageRefAtom);
+  const padding = useAtomValue(paddingAtom);
+  const showBackground = useAtomValue(backgroundAtom);
 
   useEffect(() => {
     if (ref) {
@@ -44,12 +57,12 @@ const Window: React.FC = () => {
   );
 
   return (
-    <div className={$.frame} ref={ref}>
+    <div className={$.frame} ref={ref} style={{ padding }}>
       <div className={$.window} style={styleVars}>
         <WindowTitleBar />
         <Editor />
       </div>
-      {theme.background.gradient && (
+      {theme.background.gradient && showBackground && (
         <GradientBackground
           colors={theme.background.gradient.colors}
           direction={theme.background.gradient.direction}

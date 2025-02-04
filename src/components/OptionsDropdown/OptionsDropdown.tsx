@@ -16,7 +16,7 @@ const OptionsDropdown: React.FC<Props> = ({
   alignment = "left",
   onClick,
 }) => {
-  const [showOptions, setShowOptions] = useState(true);
+  const [showOptions, setShowOptions] = useState(false);
 
   return (
     <div

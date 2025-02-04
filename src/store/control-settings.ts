@@ -46,3 +46,11 @@ export const imageFormatAtom = atomWithStorage<ImageType>(
   "image-format",
   "png"
 );
+
+export const paddingAtom = atomWithStorage<number>("padding", 32);
+export const backgroundAtom = atomWithStorage<boolean>("background", true);
+export const coloredWindowButtonsAtom = atomWithStorage<boolean>(
+  "window-buttons",
+  true
+);
+export const windowTitleAtom = atomWithStorage<boolean>("window-title", true);
