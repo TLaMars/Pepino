@@ -8,7 +8,9 @@ import styles from "./page.module.scss";
 const Pepino: React.FC = () => {
   return (
     <div className={styles.container}>
-      <Window />
+      <div className={styles.windowContainer}>
+        <Window />
+      </div>
       <ControlBar />
     </div>
   );

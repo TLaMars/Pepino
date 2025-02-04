@@ -40,7 +40,7 @@ const EXAMPLES: Example[] = [
       "    super.viewDidLoad()\n" +
       "    // Do any additional setup after loading the view.\n" +
       "  }\n" +
-      '}"',
+      "}",
   },
 ];
 
