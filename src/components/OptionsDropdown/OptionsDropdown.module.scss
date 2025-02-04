@@ -1,0 +1,31 @@
+.container {
+  padding-bottom: 1rem;
+  position: absolute;
+  bottom: 100%;
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}
+
+.options {
+  background: var(--background-surface);
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 1rem 1.2rem 1.2rem 1.2rem;
+  width: 100%;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

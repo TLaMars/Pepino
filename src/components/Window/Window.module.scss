@@ -1,0 +1,63 @@
+.window {
+  background: var(--pepino-window-background);
+  padding: 1.2rem 1.6rem 1.6rem 1.6rem;
+  border-radius: 0.8rem;
+  box-shadow: var(--pepino-box-shadow);
+  min-width: 45.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.frame {
+  position: relative;
+  min-width: 52rem;
+  max-width: 108rem;
+}
+
+.titleBar {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  gap: 0.4rem;
+  align-items: center;
+  min-height: 1.6rem;
+
+  .title {
+    grid-column: 2;
+    text-align: center;
+    font-family: var(--pepino-font-family);
+    color: var(--pepino-foreground);
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .button {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background-color: #dddddd;
+
+    &.red {
+      background: var(--red);
+    }
+
+    &.yellow {
+      background: var(--yellow);
+    }
+
+    &.green {
+      background: var(--green);
+    }
+  }
+}

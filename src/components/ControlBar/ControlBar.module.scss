@@ -1,0 +1,20 @@
+.container {
+  padding: 2rem;
+  background: var(--background-surface);
+  border: var(--border-color) 0.1rem solid;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.8rem;
+  z-index: 10;
+  gap: 2rem;
+}
+
+.wrapper {
+  position: fixed;
+  bottom: 2rem;
+
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-self: center;
+}

@@ -1,0 +1,41 @@
+.button {
+  display: flex;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+  border: 0.1rem solid transparent;
+
+  &.primary {
+    color: var(--primary);
+    background: var(--primary-dark);
+    &.border {
+      border-color: var(--primary);
+    }
+  }
+
+  &.default {
+    color: var(--text-primary);
+    background: var(--background-surface);
+
+    &:hover {
+      background: var(--background);
+    }
+  }
+
+  &.small {
+    padding: 0.4rem;
+  }
+
+  &.medium {
+    padding: 1.6rem;
+  }
+
+  &.large {
+    padding: 2.4rem;
+  }
+
+  &.pointer {
+    cursor: pointer;
+  }
+}
