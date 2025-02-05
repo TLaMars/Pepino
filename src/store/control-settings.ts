@@ -54,3 +54,5 @@ export const coloredWindowButtonsAtom = atomWithStorage<boolean>(
   true
 );
 export const windowTitleAtom = atomWithStorage<boolean>("window-title", true);
+
+export const loadingAtom = atom<boolean>(true);

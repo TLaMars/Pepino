@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Poppins } from "next/font/google";
-import "./globals.css";
-import { PropsWithChildren } from "react";
 import localFont from "next/font/local";
+import { PropsWithChildren } from "react";
+import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,7 +23,7 @@ const cascadiaMono = localFont({
 
 export const metadata: Metadata = {
   title: "Pepino | Code to image",
-  description: "Pepino is a tool that converts code to images.",
+  description: "Share your code by turning it into a beautiful image.",
   keywords: [
     "code",
     "image",
@@ -33,6 +33,8 @@ export const metadata: Metadata = {
     "programming",
     "web",
     "app",
+    "share",
+    "sharing",
   ],
 };
 

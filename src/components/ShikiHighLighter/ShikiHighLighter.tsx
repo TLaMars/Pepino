@@ -1,7 +1,9 @@
 import { HighlighterCore } from "@shikijs/core";
+import { useSetAtom } from "jotai";
 import React, { useEffect } from "react";
 
 import { Language } from "src/models/language";
+import { loadingAtom } from "src/store/control-settings";
 import getShiki from "src/utils/get-shiki";
 
 type Props = {
@@ -13,6 +15,7 @@ type Props = {
 const ShikiHighLighter: React.FC<Props> = ({ code, language, className }) => {
   const [highlightedCode, setHighlightedCode] = React.useState("");
   const [shiki, setShiki] = React.useState<HighlighterCore>();
+  const setLoading = useSetAtom(loadingAtom);
 
   useEffect(() => {
     getShiki().then((shiki) => {
@@ -30,10 +33,11 @@ const ShikiHighLighter: React.FC<Props> = ({ code, language, className }) => {
         theme: "lamars.io",
       });
       setHighlightedCode(result);
+      setLoading(false);
     };
 
     highlight();
-  }, [code, language, shiki]);
+  }, [code, language, shiki, setLoading]);
 
   return (
     <div
