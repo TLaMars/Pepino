@@ -3,8 +3,6 @@
   display: grid;
   grid-template: 1fr / 1fr;
   position: relative;
-  font-size: 1.5rem;
-  line-height: 1.5;
   width: 100%;
 
   :global(.line) {
@@ -22,8 +20,6 @@
 .textarea,
 .highlighter {
   outline: none;
-  font-size: 1.5rem;
-  line-height: 1.5;
   font-family: var(--pepino-font-family), monospace !important;
   white-space: pre-wrap;
   grid-area: 1 / 1 / 2 / 2;
@@ -31,6 +27,8 @@
 
   :global(code) {
     font-family: var(--pepino-font-family), monospace !important;
+    line-height: 1.5;
+    font-size: 1.5rem;
   }
 }
 
@@ -40,6 +38,8 @@
   resize: none;
   overflow: hidden;
   z-index: 2;
+  font-size: 1.5rem;
+  line-height: 1.5;
 
   background: transparent;
   color: transparent;

@@ -42,6 +42,7 @@ const Editor: React.FC = () => {
         language={language}
       />
       <textarea
+        id="textarea"
         ref={textareaRef}
         className={$.textarea}
         value={code}

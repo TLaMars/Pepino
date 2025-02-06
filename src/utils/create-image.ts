@@ -19,19 +19,27 @@ function createImage(
     },
   };
 
+  // Make textarea readonly for SVG
+  const textarea = element.querySelector("#textarea");
+  if (textarea) {
+    (textarea as HTMLTextAreaElement).style.outline = "none";
+    (textarea as HTMLTextAreaElement).style.visibility = "hidden";
+  }
+
   if (mode === "png") {
     DomToImage.toPng(element, config).then((dataUrl: string) =>
       saveAs(dataUrl, filename)
     );
-    return;
   }
 
   if (mode === "svg") {
     DomToImage.toSvg(element, config).then((dataUrl: string) =>
       saveAs(dataUrl, filename)
     );
-    return;
   }
+
+  // Make textarea editable again
+  (textarea as HTMLTextAreaElement).style.visibility = "visible";
 }
 
 export default createImage;

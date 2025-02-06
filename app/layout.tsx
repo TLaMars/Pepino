@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import { PropsWithChildren } from "react";
 import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "600"],
   variable: "--font-poppins",
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
 });
 
 const cascadiaMono = localFont({
@@ -41,9 +36,7 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.className} ${cascadiaMono.variable} ${jetBrainsMono.variable}`}
-      >
+      <body className={`${poppins.className} ${cascadiaMono.variable}`}>
         {children}
       </body>
     </html>
