@@ -36,11 +36,6 @@ const Editor: React.FC = () => {
 
   return (
     <div className={$.editor}>
-      <ShikiHighLighter
-        className={$.highlighter}
-        code={code}
-        language={language}
-      />
       <textarea
         id="textarea"
         ref={textareaRef}
@@ -54,6 +49,11 @@ const Editor: React.FC = () => {
           setCode(e.target.value);
         }}
       ></textarea>
+      <ShikiHighLighter
+        className={$.highlighter}
+        code={code}
+        language={language}
+      />
     </div>
   );
 };

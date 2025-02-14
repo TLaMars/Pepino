@@ -13,6 +13,7 @@ const Pepino: React.FC = () => {
 
   return (
     <div className={cx(styles.container, isLoading && styles.loading)}>
+      <div data-tauri-drag-region className={styles.tauri}></div>
       <div className={styles.windowContainer}>
         <Window />
       </div>
