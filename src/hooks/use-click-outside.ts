@@ -1,5 +1,5 @@
 import { RefObject, useEffect } from "react";
-import { AnyFunction } from "../utils/generics";
+import { AnyFunction } from "src/utils/generics";
 
 const useClickOutside = <T>(ref: RefObject<T>, callback: AnyFunction) => {
   const handleClick = (event: MouseEvent) => {

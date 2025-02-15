@@ -1,5 +1,5 @@
 import React, { RefObject, useEffect, useMemo, useRef } from "react";
-import Editor from "../Editor/Editor";
+import Editor from "src/components/Editor/Editor";
 
 import { useAtomValue, useSetAtom } from "jotai";
 import {
@@ -9,10 +9,10 @@ import {
   paddingAtom,
   themeAtom,
   windowTitleAtom,
-} from "../../store/control-settings";
-import GradientBackground from "../GradientBackground/GradientBackground";
+} from "src/store/control-settings";
+import GradientBackground from "src/components/GradientBackground/GradientBackground";
 import $ from "./Window.module.scss";
-import cx from "../../utils/classnames";
+import cx from "src/utils/classnames";
 
 const WindowTitleBar: React.FC = () => {
   const coloredButtons = useAtomValue(coloredWindowButtonsAtom);

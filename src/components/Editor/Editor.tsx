@@ -5,11 +5,11 @@ import {
   autoLanguageAtom,
   detectedLanguageAtom,
   languageAtom,
-} from "../../store/control-settings";
-import ShikiHighLighter from "../ShikiHighLighter/ShikiHighLighter";
+} from "src/store/control-settings";
+import ShikiHighLighter from "src/components/ShikiHighLighter/ShikiHighLighter";
 import $ from "./Editor.module.scss";
-import EXAMPLES from "../../constants/examples";
-import LANGUAGES from "../../constants/languages";
+import EXAMPLES from "src/constants/examples";
+import LANGUAGES from "src/constants/languages";
 
 const example = EXAMPLES[Math.floor(Math.random() * EXAMPLES.length)];
 

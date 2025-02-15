@@ -1,7 +1,7 @@
 import React from "react";
 
 import $ from "./Switch.module.scss";
-import cx from "../../utils/classnames";
+import cx from "src/utils/classnames";
 
 type Props = {
   checked: boolean;

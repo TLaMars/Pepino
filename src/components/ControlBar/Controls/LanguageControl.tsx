@@ -5,10 +5,10 @@ import {
   autoLanguageAtom,
   detectedLanguageAtom,
   languageAtom,
-} from "../../../store/control-settings";
-import SettingWrapper from "../../SettingWrapper/SettingWrapper";
-import Select from "../../Select/Select";
-import LANGUAGES from "../../../constants/languages";
+} from "src/store/control-settings";
+import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
+import Select from "src/components/Select/Select";
+import LANGUAGES from "src/constants/languages";
 
 const LanguageControl: React.FC = () => {
   const [language, setLanguage] = useAtom(languageAtom);

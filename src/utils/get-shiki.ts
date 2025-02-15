@@ -1,6 +1,6 @@
 import { createCssVariablesTheme, createHighlighterCore } from "@shikijs/core";
 import { createOnigurumaEngine } from "@shikijs/engine-oniguruma";
-import LANGUAGES from "../constants/languages";
+import LANGUAGES from "src/constants/languages";
 
 const customTheme = createCssVariablesTheme({
   name: "lamars.io",

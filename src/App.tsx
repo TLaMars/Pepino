@@ -1,8 +1,8 @@
 import { useAtomValue } from "jotai";
-import ControlBar from "./components/ControlBar/ControlBar";
-import { loadingAtom } from "./store/control-settings";
-import Window from "./components/Window/Window";
-import cx from "./utils/classnames";
+import ControlBar from "src/components/ControlBar/ControlBar";
+import { loadingAtom } from "src/store/control-settings";
+import Window from "src/components/Window/Window";
+import cx from "src/utils/classnames";
 import styles from "./App.module.scss";
 
 const Pepino: React.FC = () => {

@@ -1,10 +1,10 @@
 import { useAtom } from "jotai";
 import React from "react";
-import GradientBackground from "../../GradientBackground/GradientBackground";
-import Select from "../../Select/Select";
-import SettingWrapper from "../../SettingWrapper/SettingWrapper";
-import THEMES from "../../../constants/themes";
-import { themeAtom } from "../../../store/control-settings";
+import GradientBackground from "src/components/GradientBackground/GradientBackground";
+import Select from "src/components/Select/Select";
+import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
+import THEMES from "src/constants/themes";
+import { themeAtom } from "src/store/control-settings";
 
 const ThemeControl: React.FC = () => {
   const [theme, setTheme] = useAtom(themeAtom);
