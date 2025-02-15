@@ -1,6 +1,6 @@
 import React from "react";
 import OptionsDropdown from "src/components/OptionsDropdown/OptionsDropdown";
-import Settings from "src/assets/icons/settings.svg";
+import Settings from "src/assets/icons/settings.svg?react";
 import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
 import Button from "src/components/Button/Button";
 import {

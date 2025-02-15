@@ -1,12 +1,9 @@
-"use client";
-
 import { useAtomValue } from "jotai";
-import dynamic from "next/dynamic";
 import ControlBar from "src/components/ControlBar/ControlBar";
-import Window from "src/components/Window/Window";
 import { loadingAtom } from "src/store/control-settings";
+import Window from "src/components/Window/Window";
 import cx from "src/utils/classnames";
-import styles from "./page.module.scss";
+import styles from "./App.module.scss";
 
 const Pepino: React.FC = () => {
   const isLoading = useAtomValue(loadingAtom);
@@ -22,6 +19,4 @@ const Pepino: React.FC = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(Pepino), {
-  ssr: false,
-});
+export default Pepino;

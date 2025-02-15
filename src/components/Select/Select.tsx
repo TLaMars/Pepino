@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from "react";
 
 import $ from "./Select.module.scss";
-import ChevronDown from "src/assets/icons/chevron-down.svg";
+import ChevronDown from "src/assets/icons/chevron-down.svg?react";
 import useClickOutside from "src/hooks/use-click-outside";
 import cx from "src/utils/classnames";
 
