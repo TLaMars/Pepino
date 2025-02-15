@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "tauri-app",
-  "version": "0.1.0",
-  "identifier": "com.tauri-app.app",
+  "productName": "Pepino",
+  "version": "1.0.0",
+  "identifier": "io.lamars.pepino",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -12,9 +12,14 @@
   "app": {
     "windows": [
       {
-        "title": "tauri-app",
-        "width": 800,
-        "height": 600
+        "minHeight": 800,
+        "minWidth": 1000,
+        "title": "Pepino",
+        "width": 1200,
+        "height": 800,
+        "hiddenTitle": true,
+        "resizable": true,
+        "titleBarStyle": "Overlay"
       }
     ],
     "security": {

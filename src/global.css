@@ -6,6 +6,9 @@
   --primary: rgba(97, 147, 255, 1);
   --primary-dark: rgb(27, 37, 59);
 
+  --font-cascadia-mono: "Cascadia", monospace;
+  --font-poppins: "Poppins", sans-serif;
+
   /* apple window button colors; */
   --red: #ff605c;
   --yellow: #ffbd44;
