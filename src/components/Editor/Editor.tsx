@@ -1,15 +1,15 @@
 import hljs from "highlight.js";
 import { useAtom, useAtomValue } from "jotai";
 import { useEffect, useMemo, useRef, useState } from "react";
-import EXAMPLES from "src/constants/examples";
-import LANGUAGES from "src/constants/languages";
 import {
   autoLanguageAtom,
   detectedLanguageAtom,
   languageAtom,
-} from "src/store/control-settings";
+} from "../../store/control-settings";
 import ShikiHighLighter from "../ShikiHighLighter/ShikiHighLighter";
 import $ from "./Editor.module.scss";
+import EXAMPLES from "../../constants/examples";
+import LANGUAGES from "../../constants/languages";
 
 const example = EXAMPLES[Math.floor(Math.random() * EXAMPLES.length)];
 

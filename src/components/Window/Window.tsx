@@ -9,10 +9,10 @@ import {
   paddingAtom,
   themeAtom,
   windowTitleAtom,
-} from "src/store/control-settings";
+} from "../../store/control-settings";
 import GradientBackground from "../GradientBackground/GradientBackground";
 import $ from "./Window.module.scss";
-import cx from "src/utils/classnames";
+import cx from "../../utils/classnames";
 
 const WindowTitleBar: React.FC = () => {
   const coloredButtons = useAtomValue(coloredWindowButtonsAtom);

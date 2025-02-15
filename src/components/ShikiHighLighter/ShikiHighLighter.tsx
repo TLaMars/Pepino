@@ -2,9 +2,9 @@ import { HighlighterCore } from "@shikijs/core";
 import { useSetAtom } from "jotai";
 import React, { useEffect } from "react";
 
-import { Language } from "src/models/language";
-import { loadingAtom } from "src/store/control-settings";
-import getShiki from "src/utils/get-shiki";
+import { Language } from "../../models/language";
+import { loadingAtom } from "../../store/control-settings";
+import getShiki from "../../utils/get-shiki";
 
 type Props = {
   code: string;

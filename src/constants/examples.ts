@@ -1,4 +1,4 @@
-import Example from "src/models/example";
+import Example from "../models/example";
 import LANGUAGES from "./languages";
 
 const EXAMPLES: Example[] = [

@@ -1,13 +1,13 @@
 import { atomWithHash } from "jotai-location";
 import { atom } from "jotai";
-import LANGUAGES from "src/constants/languages";
-import THEMES from "src/constants/themes";
-import type { Language } from "src/models/language";
-import type { Theme } from "src/models/theme";
-import storageLocal from "src/utils/storage-wrapper";
+import LANGUAGES from "../constants/languages";
+import THEMES from "../constants/themes";
+import type { Language } from "../models/language";
+import type { Theme } from "../models/theme";
+import storageLocal from "../utils/storage-wrapper";
 import { RefObject } from "react";
 import { atomWithStorage } from "jotai/utils";
-import type { ImageType } from "src/utils/create-image";
+import type { ImageType } from "../utils/create-image";
 
 const getStoredTheme = () => {
   try {

@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useState } from "react";
 
-import cx from "src/utils/classnames";
+import cx from "../../utils/classnames";
 import Button from "../Button/Button";
 import $ from "./OptionsDropdown.module.scss";
 

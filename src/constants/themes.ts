@@ -1,4 +1,4 @@
-import type { Theme } from "src/models/theme";
+import type { Theme } from "../models/theme";
 
 const THEMES: Record<string, Theme> = {
   lunar: {

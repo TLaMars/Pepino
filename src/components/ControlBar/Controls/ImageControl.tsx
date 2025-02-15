@@ -1,18 +1,18 @@
 import { useAtom, useAtomValue } from "jotai";
 import React, { useCallback } from "react";
-import Download from "src/assets/icons/download.svg";
-import Button from "src/components/Button/Button";
-import OptionsDropdown from "src/components/OptionsDropdown/OptionsDropdown";
-import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
+import Download from "../../../assets/icons/download.svg?react";
 import {
   imageFormatAtom,
   imageRefAtom,
   imageScaleAtom,
-} from "src/store/control-settings";
-import createImage, { ImageType } from "src/utils/create-image";
+} from "../../../store/control-settings";
+import createImage, { ImageType } from "../../../utils/create-image";
 
 import $ from "./Controls.module.scss";
-import SCALES from "src/constants/scales";
+import SCALES from "../../../constants/scales";
+import SettingWrapper from "../../SettingWrapper/SettingWrapper";
+import OptionsDropdown from "../../OptionsDropdown/OptionsDropdown";
+import Button from "../../Button/Button";
 
 const FORMATS: ImageType[] = ["png", "svg"];
 

@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import cx from "src/utils/classnames";
+import cx from "../../utils/classnames";
 
 import $ from "./Button.module.scss";
 
