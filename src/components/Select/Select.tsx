@@ -1,9 +1,9 @@
 import React, { useMemo, useRef, useState } from "react";
-
-import $ from "./Select.module.scss";
 import ChevronDown from "src/assets/icons/chevron-down.svg?react";
 import useClickOutside from "src/hooks/use-click-outside";
 import cx from "src/utils/classnames";
+
+import $ from "./Select.module.scss";
 
 type Option = {
   value: string;
@@ -41,7 +41,7 @@ const Select: React.FC<Props> = ({
           {selectedOption.icon && (
             <div className={$.icon}>{selectedOption.icon}</div>
           )}
-          <span>{selectedOption?.label}</span>
+          <span>{selectedOption.label}</span>
         </div>
         <ChevronDown className={$.chevron} />
       </button>

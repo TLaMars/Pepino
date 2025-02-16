@@ -1,8 +1,7 @@
-import { HighlighterCore } from "@shikijs/core";
+import type { HighlighterCore } from "@shikijs/core";
+import type { Language } from "src/models/language";
 import { useSetAtom } from "jotai";
 import React, { useEffect } from "react";
-
-import { Language } from "src/models/language";
 import { loadingAtom } from "src/store/control-settings";
 import getShiki from "src/utils/get-shiki";
 
@@ -18,8 +17,8 @@ const ShikiHighLighter: React.FC<Props> = ({ code, language, className }) => {
   const setLoading = useSetAtom(loadingAtom);
 
   useEffect(() => {
-    getShiki().then((shiki) => {
-      setShiki(shiki);
+    void getShiki().then((highlighter) => {
+      setShiki(highlighter);
     });
   }, []);
 
@@ -36,7 +35,7 @@ const ShikiHighLighter: React.FC<Props> = ({ code, language, className }) => {
       setLoading(false);
     };
 
-    highlight();
+    void highlight();
   }, [code, language, shiki, setLoading]);
 
   return (

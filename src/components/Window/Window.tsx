@@ -1,7 +1,7 @@
-import React, { RefObject, useEffect, useMemo, useRef } from "react";
-import Editor from "src/components/Editor/Editor";
-
 import { useAtomValue, useSetAtom } from "jotai";
+import React, { useEffect, useMemo, useRef } from "react";
+import Editor from "src/components/Editor/Editor";
+import GradientBackground from "src/components/GradientBackground/GradientBackground";
 import {
   backgroundAtom,
   coloredWindowButtonsAtom,
@@ -10,9 +10,9 @@ import {
   themeAtom,
   windowTitleAtom,
 } from "src/store/control-settings";
-import GradientBackground from "src/components/GradientBackground/GradientBackground";
-import $ from "./Window.module.scss";
 import cx from "src/utils/classnames";
+
+import $ from "./Window.module.scss";
 
 const WindowTitleBar: React.FC = () => {
   const coloredButtons = useAtomValue(coloredWindowButtonsAtom);
@@ -38,18 +38,20 @@ const Window: React.FC = () => {
   const showBackground = useAtomValue(backgroundAtom);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (ref) {
-      setImageRef(ref as RefObject<HTMLDivElement>);
+      setImageRef(ref);
     }
   }, [ref, setImageRef]);
 
   const styleVars = useMemo(
     () =>
       Object.keys(theme.cssTokens).reduce<Record<string, string>>(
-        (styleVars, key) => {
+        (vars, key) => {
           const value = key as keyof typeof theme.cssTokens;
-          styleVars[`--pepino-${key}`] = theme.cssTokens[value];
-          return styleVars;
+          // eslint-disable-next-line no-param-reassign
+          vars[`--pepino-${key}`] = theme.cssTokens[value];
+          return vars;
         },
         {}
       ),

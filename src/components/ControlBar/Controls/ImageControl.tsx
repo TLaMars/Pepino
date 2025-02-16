@@ -1,19 +1,20 @@
+import type { ImageType } from "src/utils/create-image";
+import { isTauri } from "@tauri-apps/api/core";
 import { useAtom, useAtomValue } from "jotai";
 import React, { useCallback } from "react";
 import Download from "src/assets/icons/download.svg?react";
+import Button from "src/components/Button/Button";
+import OptionsDropdown from "src/components/OptionsDropdown/OptionsDropdown";
+import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
+import SCALES from "src/constants/scales";
 import {
   imageFormatAtom,
   imageRefAtom,
   imageScaleAtom,
 } from "src/store/control-settings";
-import createImage, { ImageType } from "src/utils/create-image";
+import createImage from "src/utils/create-image";
 
 import $ from "./Controls.module.scss";
-import SCALES from "src/constants/scales";
-import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
-import OptionsDropdown from "src/components/OptionsDropdown/OptionsDropdown";
-import Button from "src/components/Button/Button";
-import { isTauri } from "@tauri-apps/api/core";
 
 const FORMATS: ImageType[] = ["png", "svg"];
 

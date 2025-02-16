@@ -1,14 +1,13 @@
 import { useAtom, useAtomValue } from "jotai";
 import React from "react";
-
+import Select from "src/components/Select/Select";
+import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
+import LANGUAGES from "src/constants/languages";
 import {
   autoLanguageAtom,
   detectedLanguageAtom,
   languageAtom,
 } from "src/store/control-settings";
-import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
-import Select from "src/components/Select/Select";
-import LANGUAGES from "src/constants/languages";
 
 const LanguageControl: React.FC = () => {
   const [language, setLanguage] = useAtom(languageAtom);
@@ -20,7 +19,7 @@ const LanguageControl: React.FC = () => {
       <Select
         options={[
           {
-            label: `Auto (${detectedLanguage?.name})`,
+            label: `Auto (${detectedLanguage.name})`,
             value: "Auto-Detect",
             showValueInOptions: true,
           },

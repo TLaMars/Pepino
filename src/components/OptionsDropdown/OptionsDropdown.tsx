@@ -1,7 +1,8 @@
-import React, { PropsWithChildren, useState } from "react";
-
-import cx from "src/utils/classnames";
+import type { PropsWithChildren } from "react";
+import React, { useState } from "react";
 import Button from "src/components/Button/Button";
+import cx from "src/utils/classnames";
+
 import $ from "./OptionsDropdown.module.scss";
 
 type Props = {

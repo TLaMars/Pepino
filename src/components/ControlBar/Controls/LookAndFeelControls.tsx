@@ -1,18 +1,18 @@
+import { useAtom } from "jotai";
 import React from "react";
-import OptionsDropdown from "src/components/OptionsDropdown/OptionsDropdown";
 import Settings from "src/assets/icons/settings.svg?react";
-import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
 import Button from "src/components/Button/Button";
+import OptionsDropdown from "src/components/OptionsDropdown/OptionsDropdown";
+import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
+import Switch from "src/components/Switch/Switch";
 import {
   backgroundAtom,
   coloredWindowButtonsAtom,
   paddingAtom,
   windowTitleAtom,
 } from "src/store/control-settings";
-import { useAtom } from "jotai";
 
 import $ from "./Controls.module.scss";
-import Switch from "src/components/Switch/Switch";
 
 const PADDING_OPTIONS = [16, 32, 64, 128];
 

@@ -1,4 +1,5 @@
-import React, { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
+import React from "react";
 import cx from "src/utils/classnames";
 
 import $ from "./Button.module.scss";
@@ -18,24 +19,22 @@ const Button: React.FC<Props> = ({
   border = true,
   cursor = "pointer",
   type = "primary",
-}) => {
-  return (
-    <button
-      className={cx(
-        $.button,
-        size === "small" && $.small,
-        size === "medium" && $.medium,
-        size === "large" && $.large,
-        cursor === "pointer" && $.pointer,
-        type === "primary" && $.primary,
-        type === "default" && $.default,
-        border && $.border
-      )}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button
+    className={cx(
+      $.button,
+      size === "small" && $.small,
+      size === "medium" && $.medium,
+      size === "large" && $.large,
+      cursor === "pointer" && $.pointer,
+      type === "primary" && $.primary,
+      type === "default" && $.default,
+      border && $.border
+    )}
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
 
 export default Button;

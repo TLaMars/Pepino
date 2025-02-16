@@ -1,4 +1,4 @@
-import { Language } from "src/models/language";
+import type { Language } from "src/models/language";
 
 const LANGUAGES: Record<string, Language> = {
   cpp: {
