@@ -17,6 +17,8 @@
   --green: #00ca4e;
 
   font-size: 62.5%;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 html,
