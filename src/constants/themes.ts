@@ -25,7 +25,7 @@ const THEMES: Record<string, Theme> = {
       foreground: "#eef6ff",
       "window-background": "rgba(22, 22, 32, 0.95)",
       "font-family": "var(--font-cascadia-mono), monospace",
-      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
+      "box-shadow": "0 0.8rem 1.6rem rgba(0, 0, 0, 0.6)",
     },
   },
   forest: {
@@ -52,7 +52,7 @@ const THEMES: Record<string, Theme> = {
       foreground: "#fff7e4",
       "window-background": "rgba(35, 30, 25, 0.95)",
       "font-family": "var(--font-cascadia-mono), monospace",
-      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
+      "box-shadow": "0 0.8rem 1.6rem rgba(0, 0, 0, 0.6)",
     },
   },
   beach: {
@@ -79,7 +79,7 @@ const THEMES: Record<string, Theme> = {
       foreground: "#fff",
       "window-background": "rgba(25, 29, 34, 0.85)",
       "font-family": "var(--font-cascadia-mono), monospace",
-      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
+      "box-shadow": "0 0.8rem 1.6rem rgba(0, 0, 0, 0.6)",
     },
   },
   sunset: {
@@ -106,7 +106,7 @@ const THEMES: Record<string, Theme> = {
       foreground: "#fff",
       "window-background": "rgba(25, 29, 34, 0.85)",
       "font-family": "var(--font-cascadia-mono), monospace",
-      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
+      "box-shadow": "0 0.8rem 1.6rem rgba(0, 0, 0, 0.6)",
     },
   },
   swamp: {
@@ -133,7 +133,7 @@ const THEMES: Record<string, Theme> = {
       foreground: "#ffffff",
       "window-background": "rgba(25, 34, 25, 0.95)",
       "font-family": "var(--font-cascadia-mono), monospace",
-      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
+      "box-shadow": "0 0.8rem 1.6rem rgba(0, 0, 0, 0.6)",
     },
   },
   aurora: {
@@ -160,7 +160,7 @@ const THEMES: Record<string, Theme> = {
       foreground: "#ffffff",
       "window-background": "rgba(10, 22, 34, 0.95)",
       "font-family": "var(--font-cascadia-mono), monospace",
-      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
+      "box-shadow": "0 0.8rem 1.6rem rgba(0, 0, 0, 0.6)",
     },
   },
   blossom: {
@@ -187,7 +187,7 @@ const THEMES: Record<string, Theme> = {
       foreground: "#fff8f8",
       "window-background": "rgba(34, 24, 30, 0.95)",
       "font-family": "var(--font-cascadia-mono), monospace",
-      "box-shadow": "0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.6)",
+      "box-shadow": "0 0.8rem 1.6rem rgba(0, 0, 0, 0.6)",
     },
   },
 };
