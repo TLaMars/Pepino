@@ -1,3 +1,4 @@
+import { isTauri } from "@tauri-apps/api/core";
 import hljs from "highlight.js";
 import { useAtom, useAtomValue } from "jotai";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -9,6 +10,7 @@ import {
   detectedLanguageAtom,
   languageAtom,
 } from "src/store/control-settings";
+import registerClipboardShortcut from "src/utils/tauri/register-clipboard-shortcut";
 
 import $ from "./Editor.module.scss";
 
@@ -29,6 +31,13 @@ const Editor: React.FC = () => {
 
     setDetectedLanguage(LANGUAGES[language]);
   }, [autoLanguage, code, setDetectedLanguage]);
+
+  // NOTE: THIS IS TAURI SPECIFIC CODE
+  useEffect(() => {
+    if (isTauri()) {
+      void registerClipboardShortcut(setCode);
+    }
+  }, []);
 
   const language = useMemo(() => {
     if (autoLanguage) return detectedLanguage;
