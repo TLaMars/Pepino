@@ -1,9 +1,8 @@
 import { isTauri } from "@tauri-apps/api/core";
 import { save } from "@tauri-apps/plugin-dialog";
-import { writeTextFile, writeFile } from "@tauri-apps/plugin-fs";
+import { writeFile } from "@tauri-apps/plugin-fs";
 import DomToImage from "dom-to-image-more";
 import { saveAs } from "file-saver";
-import { toCanvas } from "html-to-image";
 
 export type ImageType = "png" | "svg";
 
@@ -52,9 +51,12 @@ function createImage(
   }
 
   if (mode === "svg") {
-    DomToImage.toSvg(element, config).then((dataUrl: string) =>
-      saveAs(dataUrl, filename)
-    );
+    DomToImage.toSvg(element, config).then((dataUrl: string) => {
+      if (isTauri()) {
+        return;
+      }
+      saveAs(dataUrl, filename);
+    });
   }
 
   // Make textarea editable again
