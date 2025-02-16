@@ -10,7 +10,7 @@ function createImage(
   element: HTMLElement,
   mode: ImageType = "png",
   scale: number = 2,
-  filename: string = "pepino"
+  filename: string = "pepino",
 ) {
   const finalScale = mode === "svg" ? 1 : scale;
   const config = {
@@ -39,10 +39,13 @@ function createImage(
 
         if (!path) return;
 
-        const base64Data = dataUrl.split(",")[1];
-        const binaryData = atob(base64Data);
-        const bytes = new Uint8Array(binaryData.length);
-        await writeFile(path, bytes);
+        const base64Data = dataUrl.replace(/^data:image\/png;base64,/, "");
+        const binaryData = new Uint8Array(
+          atob(base64Data)
+            .split("")
+            .map((char) => char.charCodeAt(0)),
+        );
+        await writeFile(path, binaryData);
 
         return;
       }
