@@ -13,6 +13,7 @@ import SCALES from "src/constants/scales";
 import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
 import OptionsDropdown from "src/components/OptionsDropdown/OptionsDropdown";
 import Button from "src/components/Button/Button";
+import { isTauri } from "@tauri-apps/api/core";
 
 const FORMATS: ImageType[] = ["png", "svg"];
 
@@ -53,23 +54,25 @@ const ImageControl: React.FC = () => {
             ))}
           </div>
         </SettingWrapper>
-        <SettingWrapper title="Download as">
-          <div className={$.row}>
-            {FORMATS.map((f) => (
-              <Button
-                key={f}
-                onClick={() => {
-                  setFormat(f);
-                  handleDownload(f);
-                }}
-                size="small"
-                type={f === format ? "primary" : "default"}
-              >
-                {f.toLocaleUpperCase()}
-              </Button>
-            ))}
-          </div>
-        </SettingWrapper>
+        {!isTauri() && (
+          <SettingWrapper title="Download as">
+            <div className={$.row}>
+              {FORMATS.map((f) => (
+                <Button
+                  key={f}
+                  onClick={() => {
+                    setFormat(f);
+                    handleDownload(f);
+                  }}
+                  size="small"
+                  type={f === format ? "primary" : "default"}
+                >
+                  {f.toLocaleUpperCase()}
+                </Button>
+              ))}
+            </div>
+          </SettingWrapper>
+        )}
       </div>
     </OptionsDropdown>
   );

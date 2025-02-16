@@ -1,5 +1,9 @@
+import { isTauri } from "@tauri-apps/api/core";
+import { save } from "@tauri-apps/plugin-dialog";
+import { writeTextFile, writeFile } from "@tauri-apps/plugin-fs";
 import DomToImage from "dom-to-image-more";
 import { saveAs } from "file-saver";
+import { toCanvas } from "html-to-image";
 
 export type ImageType = "png" | "svg";
 
@@ -27,9 +31,24 @@ function createImage(
   }
 
   if (mode === "png") {
-    DomToImage.toPng(element, config).then((dataUrl: string) =>
-      saveAs(dataUrl, filename)
-    );
+    DomToImage.toPng(element, config).then(async (dataUrl: string) => {
+      if (isTauri()) {
+        const path = await save({
+          defaultPath: `${filename}.png`,
+          filters: [{ name: "PNG", extensions: ["png"] }],
+        });
+
+        if (!path) return;
+
+        const base64Data = dataUrl.split(",")[1];
+        const binaryData = atob(base64Data);
+        const bytes = new Uint8Array(binaryData.length);
+        await writeFile(path, bytes);
+
+        return;
+      }
+      saveAs(dataUrl, filename);
+    });
   }
 
   if (mode === "svg") {
