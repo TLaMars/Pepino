@@ -10,7 +10,7 @@ import {
   detectedLanguageAtom,
   languageAtom,
 } from "src/store/control-settings";
-import registerClipboardShortcut from "src/utils/tauri/register-clipboard-shortcut";
+import registerClipboardReader from "src/utils/tauri/register-clipboard-reader";
 
 import $ from "./Editor.module.scss";
 
@@ -35,7 +35,7 @@ const Editor: React.FC = () => {
   // NOTE: THIS IS TAURI SPECIFIC CODE
   useEffect(() => {
     if (isTauri()) {
-      void registerClipboardShortcut(setCode);
+      void registerClipboardReader(setCode);
     }
   }, []);
 
