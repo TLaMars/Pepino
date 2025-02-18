@@ -27,9 +27,9 @@ const ImageControl: React.FC = () => {
     onPress: async () => {
       if (!isTauri() || !imageRef?.current) return;
 
-      setNotification({ message: "Copying to clipboard", icon: <File /> });
+      setNotification({ message: "Copying PNG to clipboard", icon: <File /> });
       await clipboardPng({ element: imageRef.current, scale });
-      setNotification({ message: "Copied to clipboard", icon: <File /> });
+      setNotification({ message: "Copied PNG to clipboard", icon: <File /> });
     },
     preventDefault: true,
   });
