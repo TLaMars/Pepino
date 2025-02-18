@@ -1,4 +1,3 @@
-import type { ImageType } from "src/utils/create-image";
 import { isTauri } from "@tauri-apps/api/core";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import React, { useCallback } from "react";
@@ -10,54 +9,54 @@ import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
 import SCALES from "src/constants/scales";
 import useShortcut from "src/hooks/use-shortcut";
 import {
-  imageFormatAtom,
   imageRefAtom,
   imageScaleAtom,
   notificationAtom,
 } from "src/store/control-settings";
-import createImage from "src/utils/create-image";
+import { clipboardPng, savePng, saveSvg } from "src/utils/create-image";
 
 import $ from "./Controls.module.scss";
-
-const FORMATS: ImageType[] = ["png", "svg"];
 
 const ImageControl: React.FC = () => {
   const imageRef = useAtomValue(imageRefAtom);
   const [scale, setScale] = useAtom(imageScaleAtom);
-  const [format, setFormat] = useAtom(imageFormatAtom);
   const setNotification = useSetAtom(notificationAtom);
-
-  const handleDownload = useCallback(
-    async (overwrittenFormat?: ImageType, copyToClipboard: boolean = false) => {
-      if (imageRef?.current) {
-        await createImage(
-          imageRef.current,
-          overwrittenFormat ? overwrittenFormat : format,
-          scale,
-          "Pepino",
-          copyToClipboard,
-        );
-      }
-    },
-    [format, scale, imageRef],
-  );
 
   useShortcut({
     shortcut: "CommandOrControl+C",
     onPress: async () => {
-      if (!isTauri()) return;
+      if (!isTauri() || !imageRef?.current) return;
 
       setNotification({ message: "Copying to clipboard", icon: <File /> });
-      await handleDownload("png", true);
+      await clipboardPng({ element: imageRef.current, scale });
       setNotification({ message: "Copied to clipboard", icon: <File /> });
     },
     preventDefault: true,
   });
 
+  const downloadPng = useCallback(async () => {
+    if (imageRef?.current) {
+      await savePng({
+        element: imageRef.current,
+        scale,
+        filename: "Pepino",
+      });
+    }
+  }, [scale, imageRef]);
+
+  const downloadSvg = useCallback(async () => {
+    if (imageRef?.current) {
+      await saveSvg({
+        element: imageRef.current,
+        filename: "Pepino",
+      });
+    }
+  }, [imageRef]);
+
   if (!imageRef) return null;
 
   return (
-    <OptionsDropdown icon={<Download />} onClick={handleDownload}>
+    <OptionsDropdown icon={<Download />} onClick={downloadPng}>
       <div className={$.column}>
         <SettingWrapper title="Scale">
           <div className={$.row}>
@@ -76,19 +75,12 @@ const ImageControl: React.FC = () => {
         {!isTauri() && (
           <SettingWrapper title="Download as">
             <div className={$.row}>
-              {FORMATS.map((f) => (
-                <Button
-                  key={f}
-                  onClick={() => {
-                    setFormat(f);
-                    void handleDownload(f);
-                  }}
-                  size="small"
-                  type={f === format ? "primary" : "default"}
-                >
-                  {f.toLocaleUpperCase()}
-                </Button>
-              ))}
+              <Button onClick={downloadPng} size="small">
+                PNG
+              </Button>
+              <Button onClick={downloadSvg} size="small">
+                SVG
+              </Button>
             </div>
           </SettingWrapper>
         )}

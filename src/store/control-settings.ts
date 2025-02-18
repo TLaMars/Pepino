@@ -2,7 +2,6 @@ import type { RefObject } from "react";
 import type { Language } from "src/models/language";
 import type { Notification } from "src/models/notification";
 import type { Theme } from "src/models/theme";
-import type { ImageType } from "src/utils/create-image";
 import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import { atomWithHash } from "jotai-location";
@@ -43,10 +42,6 @@ export const detectedLanguageAtom = atom<Language>(LANGUAGES.tsx);
 
 export const imageRefAtom = atom<RefObject<HTMLDivElement>>();
 export const imageScaleAtom = atomWithStorage<number>("image-scale", 2);
-export const imageFormatAtom = atomWithStorage<ImageType>(
-  "image-format",
-  "png",
-);
 
 export const paddingAtom = atomWithStorage<number>("padding", 32);
 export const backgroundAtom = atomWithStorage<boolean>("background", true);
