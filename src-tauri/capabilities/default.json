@@ -9,6 +9,7 @@
     "core:window:allow-start-dragging",
     "clipboard-manager:default",
     "clipboard-manager:allow-read-text",
+    "clipboard-manager:allow-write-image",
     "core:window:allow-set-focus"
   ]
 }

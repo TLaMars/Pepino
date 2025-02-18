@@ -1,16 +1,19 @@
 import type { ImageType } from "src/utils/create-image";
 import { isTauri } from "@tauri-apps/api/core";
-import { useAtom, useAtomValue } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import React, { useCallback } from "react";
 import Download from "src/assets/icons/download.svg?react";
+import File from "src/assets/icons/file.svg?react";
 import Button from "src/components/Button/Button";
 import OptionsDropdown from "src/components/OptionsDropdown/OptionsDropdown";
 import SettingWrapper from "src/components/SettingWrapper/SettingWrapper";
 import SCALES from "src/constants/scales";
+import useShortcut from "src/hooks/use-shortcut";
 import {
   imageFormatAtom,
   imageRefAtom,
   imageScaleAtom,
+  notificationAtom,
 } from "src/store/control-settings";
 import createImage from "src/utils/create-image";
 
@@ -22,19 +25,34 @@ const ImageControl: React.FC = () => {
   const imageRef = useAtomValue(imageRefAtom);
   const [scale, setScale] = useAtom(imageScaleAtom);
   const [format, setFormat] = useAtom(imageFormatAtom);
+  const setNotification = useSetAtom(notificationAtom);
 
   const handleDownload = useCallback(
-    (overwrittenFormat?: ImageType) => {
+    async (overwrittenFormat?: ImageType, copyToClipboard: boolean = false) => {
       if (imageRef?.current) {
-        createImage(
+        await createImage(
           imageRef.current,
           overwrittenFormat ? overwrittenFormat : format,
-          scale
+          scale,
+          "Pepino",
+          copyToClipboard,
         );
       }
     },
-    [format, scale, imageRef]
+    [format, scale, imageRef],
   );
+
+  useShortcut({
+    shortcut: "CommandOrControl+C",
+    onPress: async () => {
+      if (!isTauri()) return;
+
+      setNotification({ message: "Copying to clipboard", icon: <File /> });
+      await handleDownload("png", true);
+      setNotification({ message: "Copied to clipboard", icon: <File /> });
+    },
+    preventDefault: true,
+  });
 
   if (!imageRef) return null;
 
@@ -63,7 +81,7 @@ const ImageControl: React.FC = () => {
                   key={f}
                   onClick={() => {
                     setFormat(f);
-                    handleDownload(f);
+                    void handleDownload(f);
                   }}
                   size="small"
                   type={f === format ? "primary" : "default"}

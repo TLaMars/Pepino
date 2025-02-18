@@ -65,6 +65,16 @@ const useShortcut = ({
 
   const handleKeyEvent = useCallback(
     (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement;
+      // Skip if focus is in an input or textarea
+      if (
+        target.tagName === "INPUT" ||
+        target.tagName === "TEXTAREA" ||
+        target.isContentEditable
+      ) {
+        return;
+      }
+
       if (event.key.toLowerCase() !== key || !checkModifiers(event)) {
         return;
       }
