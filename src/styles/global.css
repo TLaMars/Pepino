@@ -2,6 +2,7 @@
 
 :root {
   --background: #0a0a0a;
+  --background-opaque: rgba(10, 10, 10, 0.9);
   --background-surface: #1c1c1e;
   --foreground: #ededed;
   --border-color: rgba(255, 255, 255, 0.145);

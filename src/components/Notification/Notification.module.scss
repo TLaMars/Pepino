@@ -1,0 +1,80 @@
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background-opaque);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(0.6rem);
+  opacity: 0;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.notification {
+  color: var(--foreground);
+  font-size: 1.4rem;
+  background: var(--background-surface);
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: slideUp 0.2s ease-out forwards;
+  > svg {
+    font-size: 2rem;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.2s ease-in forwards;
+  .notification {
+    animation: slideDown 0.2s ease-in forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}

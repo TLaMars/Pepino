@@ -5,7 +5,7 @@ import { resolveResource } from "@tauri-apps/api/path";
 import { TrayIcon } from "@tauri-apps/api/tray";
 import { useAtomValue } from "jotai";
 import ControlBar from "src/components/ControlBar/ControlBar";
-import Window from "src/components/Window/Window";
+import Frame from "src/components/Frame/Frame";
 import { loadingAtom } from "src/store/control-settings";
 import cx from "src/utils/classnames";
 
@@ -43,8 +43,8 @@ const Pepino: React.FC = () => {
   return (
     <div className={cx(styles.container, isLoading && styles.loading)}>
       {isTauri() && <div data-tauri-drag-region className={styles.tauri}></div>}
-      <div className={styles.windowContainer}>
-        <Window />
+      <div className={styles.frameSpacing}>
+        <Frame />
       </div>
       <ControlBar />
     </div>

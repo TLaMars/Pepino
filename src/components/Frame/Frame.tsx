@@ -11,8 +11,9 @@ import {
   windowTitleAtom,
 } from "src/store/control-settings";
 import cx from "src/utils/classnames";
+import Notification from "../Notification/Notification";
 
-import $ from "./Window.module.scss";
+import $ from "./Frame.module.scss";
 
 const WindowTitleBar: React.FC = () => {
   const coloredButtons = useAtomValue(coloredWindowButtonsAtom);
@@ -30,7 +31,7 @@ const WindowTitleBar: React.FC = () => {
   );
 };
 
-const Window: React.FC = () => {
+const Frame: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const theme = useAtomValue(themeAtom);
   const setImageRef = useSetAtom(imageRefAtom);
@@ -53,26 +54,29 @@ const Window: React.FC = () => {
           vars[`--pepino-${key}`] = theme.cssTokens[value];
           return vars;
         },
-        {}
+        {},
       ),
-    [theme]
+    [theme],
   );
 
   return (
-    <div className={$.frame} ref={ref} style={{ padding }}>
-      <div className={$.window} style={styleVars}>
-        <WindowTitleBar />
-        <Editor />
+    <div className={$.frameContainer}>
+      <Notification />
+      <div className={$.frame} ref={ref} style={{ padding }}>
+        <div className={$.window} style={styleVars}>
+          <WindowTitleBar />
+          <Editor />
+        </div>
+        {theme.background.gradient && showBackground && (
+          <GradientBackground
+            colors={theme.background.gradient.colors}
+            direction={theme.background.gradient.direction}
+            zIndex={-1}
+          />
+        )}
       </div>
-      {theme.background.gradient && showBackground && (
-        <GradientBackground
-          colors={theme.background.gradient.colors}
-          direction={theme.background.gradient.direction}
-          zIndex={-1}
-        />
-      )}
     </div>
   );
 };
 
-export default Window;
+export default Frame;
