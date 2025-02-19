@@ -10,6 +10,7 @@
     "clipboard-manager:default",
     "clipboard-manager:allow-read-text",
     "clipboard-manager:allow-write-image",
-    "core:window:allow-set-focus"
+    "core:window:allow-set-focus",
+    "core:window:allow-show"
   ]
 }

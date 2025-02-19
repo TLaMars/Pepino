@@ -10,6 +10,7 @@
     "global-shortcut:allow-unregister",
     "fs:allow-write",
     "fs:allow-write-text-file",
-    "fs:allow-write-file"
+    "fs:allow-write-file",
+    "global-shortcut:default"
   ]
 }

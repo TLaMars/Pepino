@@ -1,11 +1,13 @@
 const registerClipboardReader = async (callback: (input: string) => void) => {
-  const { listen } = await import("@tauri-apps/api/event");
   const { getCurrentWindow } = await import("@tauri-apps/api/window");
+  const { readText } = await import("@tauri-apps/plugin-clipboard-manager");
+  const { register } = await import("@tauri-apps/plugin-global-shortcut");
 
-  await listen("clipboard_shortcut", async (event) => {
+  // eslint-disable-next-line no-secrets/no-secrets
+  await register("CommandOrControl+Shift+V", async () => {
     await getCurrentWindow().show().catch(console.error);
     await getCurrentWindow().setFocus().catch(console.error);
-    callback(event.payload as string);
+    await readText().then(callback).catch(console.error);
   });
 };
 
