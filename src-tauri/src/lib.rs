@@ -14,9 +14,6 @@ fn setup_global_shortcuts(app: &mut tauri::App) -> Result<(), Box<dyn std::error
                 if shortcut == &command_n_shortcut {
                     match event.state() {
                         ShortcutState::Pressed => {
-                            // show window when the shortcut is pressed
-                            app_handler.show().unwrap();
-
                             // Emit an event to the frontend
                             let content = app_handler.clipboard().read_text().unwrap();
                             app_handler.emit("clipboard_shortcut", content).unwrap();

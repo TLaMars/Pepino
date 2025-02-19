@@ -3,6 +3,7 @@ const registerClipboardReader = async (callback: (input: string) => void) => {
   const { getCurrentWindow } = await import("@tauri-apps/api/window");
 
   await listen("clipboard_shortcut", async (event) => {
+    await getCurrentWindow().show().catch(console.error);
     await getCurrentWindow().setFocus().catch(console.error);
     callback(event.payload as string);
   });
