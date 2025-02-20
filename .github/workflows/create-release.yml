@@ -37,9 +37,54 @@ jobs:
         with:
           configuration: |
             {
-              "exclude": {
-                "commits": ["^chore\\(release\\):.*"]
-              }
+              "categories": [
+                {
+                  "title": "## 🚀 Features",
+                  "labels": [],
+                  "commits": ["^feat"],
+                  "type": "feat"
+                },
+                {
+                  "title": "## 🐛 Fixes",
+                  "labels": [],
+                  "commits": ["^fix"],
+                  "type": "fix"
+                },
+                {
+                  "title": "## 📝 Documentation",
+                  "labels": [],
+                  "commits": ["^docs"],
+                  "type": "docs"
+                },
+                {
+                  "title": "## ♻️ Refactor",
+                  "labels": [],
+                  "commits": ["^refactor"],
+                  "type": "refactor"
+                },
+                {
+                  "title": "## 🧪 Tests",
+                  "labels": [],
+                  "commits": ["^test"],
+                  "type": "test"
+                },
+                {
+                  "title": "## 🔧 Maintenance",
+                  "labels": [],
+                  "commits": ["^chore(?!\\(release\\))"],
+                  "type": "chore"
+                }
+              ],
+              "ignore_labels": [
+                "ignore"
+              ],
+              "sort": {
+                "order": "DESC"
+              },
+              "template": "${{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n${{UNCATEGORIZED}}\n</details>",
+              "pr_template": "- ${{TITLE}} (#${{NUMBER}})",
+              "empty_template": "- No changes",
+              "trim_values": true
             }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
