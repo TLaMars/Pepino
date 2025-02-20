@@ -31,68 +31,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Generate changelog
-        id: changelog
-        uses: mikepenz/release-changelog-builder-action@v4
-        with:
-          configuration: |
-            {
-              "categories": [
-                {
-                  "title": "## 🚀 Features",
-                  "labels": [],
-                  "commits": ["^feat"],
-                  "type": "feat"
-                },
-                {
-                  "title": "## 🐛 Fixes",
-                  "labels": [],
-                  "commits": ["^fix"],
-                  "type": "fix"
-                },
-                {
-                  "title": "## 📝 Documentation",
-                  "labels": [],
-                  "commits": ["^docs"],
-                  "type": "docs"
-                },
-                {
-                  "title": "## ♻️ Refactor",
-                  "labels": [],
-                  "commits": ["^refactor"],
-                  "type": "refactor"
-                },
-                {
-                  "title": "## 🧪 Tests",
-                  "labels": [],
-                  "commits": ["^test"],
-                  "type": "test"
-                },
-                {
-                  "title": "## 🔧 Maintenance",
-                  "labels": [],
-                  "commits": ["^chore(?!\\(release\\))"],
-                  "type": "chore"
-                }
-              ],
-              "ignore_labels": [
-                "ignore"
-              ],
-              "sort": {
-                "order": "DESC"
-              },
-              "template": "${{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n${{UNCATEGORIZED}}\n</details>",
-              "pr_template": "- ${{TITLE}} (#${{NUMBER}})",
-              "empty_template": "- No changes",
-              "trim_values": true
-            }
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: setup node
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
+
+      - name: Generate changelog
+        id: changelog
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ github.ref_name }}
 
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
@@ -123,9 +72,9 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
-          tagName: v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
+          tagName: v__VERSION__ # the action automatically replaces __VERSION__ with the app version
           releaseName: "App v__VERSION__"
-          releaseBody: ${{ steps.changelog.outputs.changelog }}
+          releaseBody: ${{ steps.changelog.outputs.changes }}
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
