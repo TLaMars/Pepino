@@ -11,6 +11,8 @@
     "clipboard-manager:allow-read-text",
     "clipboard-manager:allow-write-image",
     "core:window:allow-set-focus",
-    "core:window:allow-show"
+    "core:window:allow-show",
+    "process:default",
+    "process:allow-restart"
   ]
 }
