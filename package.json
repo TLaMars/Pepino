@@ -4,18 +4,19 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "dev": "vite",
+    "fix": "concurrently -c \"auto\" \"npm run lint:fix\" \"npm run format:fix\"",
+    "format:fix": "prettier --write .",
+    "format": "prettier --check .",
+    "lint:eslint": "eslint src --color --max-warnings=0",
+    "lint:fix": "concurrently -c \"auto\" \"npm run lint:*(!fix|tsc) -- --fix\"",
+    "lint:tsc": "tsc --noEmit --pretty",
+    "lint": "concurrently -c \"auto\" --kill-others-on-fail \"npm run lint:*(!fix)\"",
+    "prepare": "husky",
     "preview": "vite preview",
     "tauri": "tauri",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "lint": "concurrently -c \"auto\" --kill-others-on-fail \"npm run lint:*(!fix)\"",
-    "lint:fix": "concurrently -c \"auto\" \"npm run lint:*(!fix|tsc) -- --fix\"",
-    "lint:eslint": "eslint src --color --max-warnings=0",
-    "lint:tsc": "tsc --noEmit --pretty",
-    "fix": "concurrently -c \"auto\" \"npm run lint:fix\" \"npm run format:fix\"",
-    "prepare": "husky"
+    "version:bump": "node scripts/bump-version.js"
   },
   "dependencies": {
     "@shikijs/core": "^2.3.2",
