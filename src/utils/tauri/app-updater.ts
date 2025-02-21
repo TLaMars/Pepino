@@ -1,12 +1,19 @@
+import { isTauri } from "@tauri-apps/api/core";
+
 export enum AppUpdaterEvent {
   Started = "Started",
   Progress = "Progress",
   Finished = "Finished",
   Failed = "Failed",
   NoUpdate = "NoUpdate",
+  NotSupported = "NotSupported",
 }
 
 const appUpdater = async () => {
+  if (!isTauri()) {
+    return AppUpdaterEvent.NotSupported;
+  }
+
   const { check } = await import("@tauri-apps/plugin-updater");
   const { relaunch } = await import("@tauri-apps/plugin-process");
   try {

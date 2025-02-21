@@ -7,7 +7,7 @@ import $ from "./Notification.module.scss";
 const Notification: React.FC = () => {
   const [notification, setNotification] = useAtom(notificationAtom);
   const [isLeaving, setIsLeaving] = useState(false);
-  const timeoutRef = useRef<number>();
+  const timeoutRef = useRef<number | undefined>(undefined);
 
   // Handle fade out animation before unmounting
   const handleClose = React.useCallback(() => {

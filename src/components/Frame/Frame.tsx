@@ -39,11 +39,10 @@ const Frame: React.FC = () => {
   const showBackground = useAtomValue(backgroundAtom);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (ref) {
-      setImageRef(ref);
+    if (ref.current) {
+      setImageRef({ current: ref.current });
     }
-  }, [ref, setImageRef]);
+  }, [setImageRef, ref]);
 
   const styleVars = useMemo(
     () =>

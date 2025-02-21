@@ -1,5 +1,5 @@
 import { createCssVariablesTheme, createHighlighterCore } from "@shikijs/core";
-import { createOnigurumaEngine } from "@shikijs/engine-oniguruma";
+import { createJavaScriptRegexEngine } from "@shikijs/engine-javascript";
 import LANGUAGES from "src/constants/languages";
 
 const customTheme = createCssVariablesTheme({
@@ -16,9 +16,7 @@ const getShiki = async () =>
       LANGUAGES.javascript.import(),
       LANGUAGES.swift.import(),
     ],
-    engine: createOnigurumaEngine(
-      () => import("@shikijs/engine-oniguruma/wasm-inlined")
-    ),
+    engine: createJavaScriptRegexEngine({ forgiving: true }),
   });
 
 export default getShiki;
