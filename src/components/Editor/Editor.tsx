@@ -10,42 +10,11 @@ import {
   detectedLanguageAtom,
   languageAtom,
 } from "src/store/control-settings";
-import addToTextArea from "src/utils/editor/add-to-textarea";
+import handleEnterKey from "src/utils/editor/handle-enter-key";
+import handleTabKey from "src/utils/editor/handle-tab-key";
 import registerClipboardReader from "src/utils/tauri/register-clipboard-reader";
 
 import $ from "./Editor.module.scss";
-
-const getCurrentLine = (textarea: HTMLTextAreaElement) => {
-  const original = textarea.value;
-
-  const { selectionStart } = textarea;
-  const beforeStart = original.slice(0, selectionStart);
-
-  return original
-    .slice(
-      beforeStart.lastIndexOf("\n") !== -1
-        ? beforeStart.lastIndexOf("\n") + 1
-        : 0,
-    )
-    .split("\n")[0];
-};
-
-const handleEnter = (
-  textarea: HTMLTextAreaElement,
-  onChange: (text: string) => void,
-) => {
-  const currentLine = getCurrentLine(textarea);
-  const currentIndentationMatch = currentLine.match(/^(\s+)/);
-  let wantedIndentation = currentIndentationMatch
-    ? currentIndentationMatch[0]
-    : "";
-
-  if (currentLine.match(/([{[:])$/)) {
-    wantedIndentation += "  ";
-  }
-
-  addToTextArea(`\n${wantedIndentation}`, textarea, onChange);
-};
 
 const example = EXAMPLES[Math.floor(Math.random() * EXAMPLES.length)];
 
@@ -82,7 +51,12 @@ const Editor: React.FC = () => {
 
     if (e.key === "Enter") {
       e.preventDefault();
-      handleEnter(textarea, setCode);
+      handleEnterKey(textarea, setCode);
+    }
+
+    if (e.key === "Tab") {
+      e.preventDefault();
+      handleTabKey(textarea, e.shiftKey, setCode);
     }
   };
 
@@ -99,7 +73,7 @@ const Editor: React.FC = () => {
         spellCheck={false}
         onChange={(e) => setCode(e.target.value)}
         onKeyDown={handleKeyDown}
-      ></textarea>
+      />
       <ShikiHighLighter
         className={$.highlighter}
         code={code}
