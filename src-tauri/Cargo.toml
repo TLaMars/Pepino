@@ -1,6 +1,6 @@
 [package]
 name = "Pepino"
-version = "0.1.3"
+version = "0.2.0"
 description = "Pepino | Your code to image generator"
 authors = ["Thomas Lamars"]
 edition = "2021"
