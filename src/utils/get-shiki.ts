@@ -17,7 +17,7 @@ const getShiki = async () =>
       LANGUAGES.swift.import(),
     ],
     engine: createOnigurumaEngine(
-      () => import("@shikijs/engine-oniguruma/wasm-inlined")
+      () => import("@shikijs/engine-oniguruma/wasm-inlined"),
     ),
   });
 

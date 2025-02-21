@@ -39,7 +39,6 @@ const Frame: React.FC = () => {
   const showBackground = useAtomValue(backgroundAtom);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (ref) {
       setImageRef(ref);
     }
@@ -54,9 +53,9 @@ const Frame: React.FC = () => {
           vars[`--pepino-${key}`] = theme.cssTokens[value];
           return vars;
         },
-        {},
+        {}
       ),
-    [theme],
+    [theme]
   );
 
   return (
