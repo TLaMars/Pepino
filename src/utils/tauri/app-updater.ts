@@ -1,10 +1,10 @@
-// export enum AppUpdaterEvent {
-//   Started = "Started",
-//   Progress = "Progress",
-//   Finished = "Finished",
-//   Failed = "Failed",
-//   NoUpdate = "NoUpdate",
-// }
+export enum AppUpdaterEvent {
+  Started = "Started",
+  Progress = "Progress",
+  Finished = "Finished",
+  Failed = "Failed",
+  NoUpdate = "NoUpdate",
+}
 
 const appUpdater = async () => {
   const { check } = await import("@tauri-apps/plugin-updater");
@@ -37,9 +37,14 @@ const appUpdater = async () => {
       });
 
       await relaunch();
+      return AppUpdaterEvent.Finished;
     }
+
+    console.info("No update available");
+    return AppUpdaterEvent.NoUpdate;
   } catch (e) {
     console.error(e);
+    return AppUpdaterEvent.Failed;
   }
 };
 
