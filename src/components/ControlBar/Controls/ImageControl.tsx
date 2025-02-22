@@ -25,11 +25,21 @@ const ImageControl: React.FC = () => {
   useShortcut({
     shortcut: "CommandOrControl+C",
     onPress: async () => {
-      if (!isTauri() || !imageRef?.current) return;
-
+      if (!imageRef?.current) return;
       setNotification({ message: "Copying PNG to clipboard", icon: <File /> });
       await clipboardPng({ element: imageRef.current, scale });
       setNotification({ message: "Copied PNG to clipboard", icon: <File /> });
+    },
+    preventDefault: true,
+  });
+
+  useShortcut({
+    shortcut: "CommandOrControl+S",
+    onPress: async () => {
+      if (!imageRef?.current) return;
+      setNotification({ message: "Downloading PNG", icon: <File /> });
+      await savePng({ element: imageRef.current, scale, filename: "Pepino" });
+      setNotification({ message: "Downloaded PNG", icon: <File /> });
     },
     preventDefault: true,
   });
