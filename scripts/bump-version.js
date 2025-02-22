@@ -59,7 +59,7 @@ function gitCommitAndTag(version) {
   );
   execSync(`git commit -m "chore(release): v${version}"`);
   execSync(`git tag v${version}`);
-  execSync("git push --follow-tags");
+  execSync("git push --tags");
 }
 
 async function promptVersionType() {
