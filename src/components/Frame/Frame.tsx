@@ -47,12 +47,11 @@ const Frame: React.FC = () => {
   const styleVars = useMemo(
     () =>
       Object.keys(theme.cssTokens).reduce<Record<string, string>>(
-        (vars, key) => {
-          const value = key as keyof typeof theme.cssTokens;
-          // eslint-disable-next-line no-param-reassign
-          vars[`--pepino-${key}`] = theme.cssTokens[value];
-          return vars;
-        },
+        (acc, key) => ({
+          ...acc,
+          [`--pepino-${key}`]:
+            theme.cssTokens[key as keyof typeof theme.cssTokens],
+        }),
         {},
       ),
     [theme],
@@ -62,6 +61,9 @@ const Frame: React.FC = () => {
     <div className={$.frameContainer}>
       <Notification />
       <div className={$.frame} ref={ref} style={{ padding }}>
+        {!showBackground && (
+          <div data-ignore-export className={$.transparencyBackground} />
+        )}
         {theme.background.gradient && showBackground && (
           <GradientBackground
             colors={theme.background.gradient.colors}

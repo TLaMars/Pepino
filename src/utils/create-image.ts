@@ -14,7 +14,8 @@ type SaveImageProps = {
 const getConfig = (scale: number = 8) => ({
   scale,
   filter: (el: HTMLElement) => {
-    if (el.id === "textarea" || el.id === "input") {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (el.id === "textarea" || el.id === "input" || el.dataset?.ignoreExport) {
       return false;
     }
     return true;
