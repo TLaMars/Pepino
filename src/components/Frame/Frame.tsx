@@ -39,8 +39,8 @@ const Frame: React.FC = () => {
   const showBackground = useAtomValue(backgroundAtom);
 
   useEffect(() => {
-    if (ref) {
-      setImageRef(ref);
+    if (ref.current) {
+      setImageRef({ current: ref.current });
     }
   }, [ref, setImageRef]);
 
@@ -53,26 +53,25 @@ const Frame: React.FC = () => {
           vars[`--pepino-${key}`] = theme.cssTokens[value];
           return vars;
         },
-        {}
+        {},
       ),
-    [theme]
+    [theme],
   );
 
   return (
     <div className={$.frameContainer}>
       <Notification />
       <div className={$.frame} ref={ref} style={{ padding }}>
-        <div className={$.window} style={styleVars}>
-          <WindowTitleBar />
-          <Editor />
-        </div>
         {theme.background.gradient && showBackground && (
           <GradientBackground
             colors={theme.background.gradient.colors}
             direction={theme.background.gradient.direction}
-            zIndex={-1}
           />
         )}
+        <div className={$.window} style={styleVars}>
+          <WindowTitleBar />
+          <Editor />
+        </div>
       </div>
     </div>
   );
